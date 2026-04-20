@@ -1,8 +1,0 @@
-<?php
-/** Copy this file to config.local.php and edit for your machine (not committed if you gitignore it). */
-return [
-    'host' => '127.0.0.1',
-    'dbname' => 'hospital_records',
-    'user' => 'root',
-    'pass' => '',
-];
