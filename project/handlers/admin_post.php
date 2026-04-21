@@ -1,10 +1,7 @@
 <?php
 declare(strict_types=1);
 
-// session_start before everything -- must be before any output or header calls
 session_start();
-
-// auth guard -- block non-admin access to all handler actions
 if (empty($_SESSION['is_admin'])) {
     http_response_code(403);
     header('Location: ../login.php');
@@ -12,6 +9,10 @@ if (empty($_SESSION['is_admin'])) {
 }
 
 require_once __DIR__ . '/../includes/bootstrap.php';
+
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    redirect('../AdminPanel.php');
+}
 
 $form = trim((string) ($_POST['admin_form'] ?? ''));
 if ($form === '') {
@@ -43,8 +44,8 @@ try {
             }
             $loc = $loc === '' ? null : $loc;
             $nextId = (int) $pdo->query('SELECT COALESCE(MAX(Department_ID), 0) + 1 FROM DEPARTMENTS')->fetchColumn();
-            // column is Name in create.sql, not Department_Name
-            $pdo->prepare('INSERT INTO DEPARTMENTS (Department_ID, Name, Location) VALUES (?, ?, ?)')->execute([$nextId, $name, $loc]);
+            // Department_Name is the column name in the schema
+            $pdo->prepare('INSERT INTO DEPARTMENTS (Department_ID, Department_Name, Location) VALUES (?, ?, ?)')->execute([$nextId, $name, $loc]);
             okAdmin('Department saved. New department ID: ' . $nextId . '.');
             break;
 
@@ -77,9 +78,9 @@ try {
                 failAdmin('Department does not exist.');
             }
             $newDoctorId = (int) $pdo->query('SELECT COALESCE(MAX(Doctor_ID), 0) + 1 FROM DOCTORS')->fetchColumn();
-            // column is Name in create.sql, not Doctor_Name
+            // Doctor_Name is the column name in the schema
             $pdo->prepare(
-                'INSERT INTO DOCTORS (Doctor_ID, Name, Specialization, Department_ID) VALUES (?, ?, ?, ?)'
+                'INSERT INTO DOCTORS (Doctor_ID, Doctor_Name, Specialization, Department_ID) VALUES (?, ?, ?, ?)'
             )->execute([$newDoctorId, $dname, $spec, $deptId]);
             okAdmin('Doctor saved. New doctor ID: ' . $newDoctorId . '.');
             break;
