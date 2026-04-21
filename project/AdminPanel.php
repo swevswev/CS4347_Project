@@ -1,10 +1,7 @@
 <?php
 declare(strict_types=1);
 
-// session_start must come before any output or require that might output
 session_start();
-
-// auth check before doing anything else -- redirect immediately if not logged in
 if (empty($_SESSION['is_admin'])) {
     header('Location: login.php');
     exit;
@@ -12,10 +9,10 @@ if (empty($_SESSION['is_admin'])) {
 
 require_once __DIR__ . '/includes/bootstrap.php';
 
-// Name is the column in DEPARTMENTS per create.sql (not Department_Name)
+// Department_Name is the column in DEPARTMENTS per create.sql
 $departments = db()->query(
-    'SELECT Department_ID AS department_id, Name AS dept_name, Location AS dept_location
-     FROM DEPARTMENTS ORDER BY Name'
+    'SELECT Department_ID AS department_id, Department_Name AS dept_name, Location AS dept_location
+     FROM DEPARTMENTS ORDER BY Department_Name'
 )->fetchAll();
 ?>
 <!DOCTYPE html>
@@ -25,40 +22,40 @@ $departments = db()->query(
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Panel — Hospital Records</title>
   <style>
-    :root { --bg:#f4f6f8; --card:#fff; --border:#d0d7de; --text:#1f2328; --muted:#59636e; --accent:#0969da; }
-    * { box-sizing:border-box; }
-    body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif; background:var(--bg); color:var(--text); line-height:1.5; padding:1.5rem; }
-    main { max-width:36rem; margin:0 auto; background:var(--card); border:1px solid var(--border); border-radius:8px; padding:1.5rem 1.75rem 2rem; box-shadow:0 1px 3px rgba(31,35,40,.08); }
-    h1 { font-size:1.35rem; font-weight:600; margin:0 0 .25rem; }
-    .subtitle { color:var(--muted); font-size:.9rem; margin:0 0 1.5rem; }
-    .subtitle a { color:var(--accent); }
-    .topbar { display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem; }
-    .logout-btn { font-size:.85rem; padding:.35rem .85rem; border-radius:6px; border:1px solid var(--border); background:#fff; color:var(--text); cursor:pointer; text-decoration:none; }
-    .logout-btn:hover { background:#f6f8fa; }
-    fieldset { border:1px solid var(--border); border-radius:6px; margin:0 0 1.25rem; padding:1rem 1rem .25rem; }
-    legend { font-weight:600; font-size:.85rem; padding:0 .35rem; }
-    .row { margin-bottom:1rem; }
-    label { display:block; font-size:.875rem; font-weight:500; margin-bottom:.35rem; }
-    .hint { font-weight:400; color:var(--muted); font-size:.8rem; }
-    input, select { width:100%; max-width:100%; padding:.5rem .65rem; font-size:1rem; border:1px solid var(--border); border-radius:6px; background:#fff; }
-    input:focus, select:focus { outline:2px solid rgba(9,105,218,.35); outline-offset:1px; }
-    .actions { display:flex; gap:.75rem; flex-wrap:wrap; margin-top:.5rem; }
-    button { font-size:1rem; padding:.55rem 1.1rem; border-radius:6px; border:1px solid var(--border); background:var(--accent); color:#fff; font-weight:500; cursor:pointer; }
-    button[type="reset"] { background:#fff; color:var(--text); }
-    button:hover { filter:brightness(1.05); }
-    input.no-spinner::-webkit-outer-spin-button, input.no-spinner::-webkit-inner-spin-button { -webkit-appearance:none; margin:0; }
-    input.no-spinner { -moz-appearance:textfield; appearance:textfield; }
-    main > form + form { margin-top:1.75rem; }
-    main > hr { margin:2rem 0; border:0; border-top:1px solid var(--border); }
-    .banner { padding:.75rem 1rem; border-radius:6px; margin-bottom:1rem; font-size:.9rem; }
-    .banner-error { background:#ffebe9; border:1px solid #ff8182; color:#82071e; }
-    .banner-success { background:#dafbe1; border:1px solid #4ac26b; color:#116329; }
+    :root { --bg: #f4f6f8; --card: #fff; --border: #d0d7de; --text: #1f2328; --muted: #59636e; --accent: #0969da; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; padding: 1.5rem; }
+    main { max-width: 36rem; margin: 0 auto; background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem 1.75rem 2rem; box-shadow: 0 1px 3px rgba(31,35,40,0.08); }
+    h1 { font-size: 1.35rem; font-weight: 600; margin: 0 0 0.25rem; }
+    .subtitle { color: var(--muted); font-size: 0.9rem; margin: 0 0 1.5rem; }
+    .subtitle a { color: var(--accent); }
+    .topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; }
+    .logout-btn { font-size: 0.85rem; padding: 0.35rem 0.85rem; border-radius: 6px; border: 1px solid var(--border); background: #fff; color: var(--text); text-decoration: none; }
+    .logout-btn:hover { background: #f6f8fa; }
+    fieldset { border: 1px solid var(--border); border-radius: 6px; margin: 0 0 1.25rem; padding: 1rem 1rem 0.25rem; }
+    legend { font-weight: 600; font-size: 0.85rem; padding: 0 0.35rem; }
+    .row { margin-bottom: 1rem; }
+    label { display: block; font-size: 0.875rem; font-weight: 500; margin-bottom: 0.35rem; }
+    .hint { font-weight: 400; color: var(--muted); font-size: 0.8rem; }
+    input, select { width: 100%; max-width: 100%; padding: 0.5rem 0.65rem; font-size: 1rem; border: 1px solid var(--border); border-radius: 6px; background: #fff; }
+    input:focus, select:focus { outline: 2px solid rgba(9,105,218,0.35); outline-offset: 1px; }
+    .actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem; }
+    button { font-size: 1rem; padding: 0.55rem 1.1rem; border-radius: 6px; border: 1px solid var(--border); background: var(--accent); color: #fff; font-weight: 500; cursor: pointer; }
+    button[type="reset"] { background: #fff; color: var(--text); }
+    button:hover { filter: brightness(1.05); }
+    input.no-spinner::-webkit-outer-spin-button, input.no-spinner::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    input.no-spinner { -moz-appearance: textfield; appearance: textfield; }
+    main > form + form { margin-top: 1.75rem; }
+    main > hr { margin: 2rem 0; border: 0; border-top: 1px solid var(--border); }
+    .banner { padding: 0.75rem 1rem; border-radius: 6px; margin-bottom: 1rem; font-size: 0.9rem; }
+    .banner-error { background: #ffebe9; border: 1px solid #ff8182; color: #82071e; }
+    .banner-success { background: #dafbe1; border: 1px solid #4ac26b; color: #116329; }
   </style>
 </head>
 <body>
   <main>
     <div class="topbar">
-      <p class="subtitle" style="margin:0"><a href="index.php">&#8592; Home</a></p>
+      <p class="subtitle" style="margin:0"><a href="index.php">← Home</a></p>
       <a href="logout.php" class="logout-btn">Log out</a>
     </div>
     <h1>Admin panel</h1>
@@ -114,11 +111,11 @@ $departments = db()->query(
         <div class="row">
           <label for="doctor_department_id">Department</label>
           <select id="doctor_department_id" name="doctor_department_id" required>
-            <option value="" selected disabled>&#8212; Select department &#8212;</option>
+            <option value="" selected disabled>— Select department —</option>
             <?php foreach ($departments as $d): ?>
               <option value="<?= (int) $d['department_id'] ?>">
                 <?= h($d['dept_name']) ?> (ID <?= (int) $d['department_id'] ?>)
-                <?php if (!empty($d['dept_location'])): ?> &#8212; <?= h((string) $d['dept_location']) ?><?php endif; ?>
+                <?php if (!empty($d['dept_location'])): ?> — <?= h((string) $d['dept_location']) ?><?php endif; ?>
               </option>
             <?php endforeach; ?>
           </select>
