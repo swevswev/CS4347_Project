@@ -1,11 +1,17 @@
 <?php
 declare(strict_types=1);
 
-require_once __DIR__ . '/../includes/bootstrap.php';
+// session_start before everything -- must be before any output or header calls
+session_start();
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    redirect('../AdminPanel.php');
+// auth guard -- block non-admin access to all handler actions
+if (empty($_SESSION['is_admin'])) {
+    http_response_code(403);
+    header('Location: ../login.php');
+    exit;
 }
+
+require_once __DIR__ . '/../includes/bootstrap.php';
 
 $form = trim((string) ($_POST['admin_form'] ?? ''));
 if ($form === '') {
@@ -37,7 +43,8 @@ try {
             }
             $loc = $loc === '' ? null : $loc;
             $nextId = (int) $pdo->query('SELECT COALESCE(MAX(Department_ID), 0) + 1 FROM DEPARTMENTS')->fetchColumn();
-            $pdo->prepare('INSERT INTO DEPARTMENTS (Department_ID, Department_Name, Location) VALUES (?, ?, ?)')->execute([$nextId, $name, $loc]);
+            // column is Name in create.sql, not Department_Name
+            $pdo->prepare('INSERT INTO DEPARTMENTS (Department_ID, Name, Location) VALUES (?, ?, ?)')->execute([$nextId, $name, $loc]);
             okAdmin('Department saved. New department ID: ' . $nextId . '.');
             break;
 
@@ -70,8 +77,9 @@ try {
                 failAdmin('Department does not exist.');
             }
             $newDoctorId = (int) $pdo->query('SELECT COALESCE(MAX(Doctor_ID), 0) + 1 FROM DOCTORS')->fetchColumn();
+            // column is Name in create.sql, not Doctor_Name
             $pdo->prepare(
-                'INSERT INTO DOCTORS (Doctor_ID, Doctor_Name, Specialization, Department_ID) VALUES (?, ?, ?, ?)'
+                'INSERT INTO DOCTORS (Doctor_ID, Name, Specialization, Department_ID) VALUES (?, ?, ?, ?)'
             )->execute([$newDoctorId, $dname, $spec, $deptId]);
             okAdmin('Doctor saved. New doctor ID: ' . $newDoctorId . '.');
             break;
@@ -101,7 +109,7 @@ try {
                 failAdmin('Valid condition ID is required.');
             }
             $pdo->prepare('DELETE FROM CONDITIONS WHERE Condition_ID = ?')->execute([$id]);
-            okAdmin('Condition removed (visits using it will have condition cleared).');
+            okAdmin('Condition removed.');
             break;
 
         default:
@@ -115,5 +123,5 @@ try {
     if ($code === 1062) {
         failAdmin('Duplicate entry (e.g. condition name already exists).');
     }
-    failAdmin('Database error. If you are developing locally, enable error logging to see details.');
+    failAdmin('Database error. Enable error logging to see details.');
 }
