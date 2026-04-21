@@ -29,10 +29,16 @@ if (!in_array($gender, $allowedG, true)) {
 }
 
 $insType = trim((string) ($_POST['ins_type'] ?? ''));
-$insType = $insType === '' ? null : (strlen($insType) > 50 ? substr($insType, 0, 50) : $insType);
+if ($insType !== '' && strlen($insType) > 50) {
+    fail('Insurance type must be at most 50 characters.');
+}
+$insType = $insType === '' ? null : $insType;
 
 $provider = trim((string) ($_POST['provider'] ?? ''));
-$provider = $provider === '' ? null : (strlen($provider) > 100 ? substr($provider, 0, 100) : $provider);
+if ($provider !== '' && strlen($provider) > 100) {
+    fail('Insurance provider must be at most 100 characters.');
+}
+$provider = $provider === '' ? null : $provider;
 
 $deductible = null;
 if (isset($_POST['deductible']) && $_POST['deductible'] !== '') {
@@ -56,15 +62,20 @@ if (isset($_POST['prim_doctor']) && $_POST['prim_doctor'] !== '') {
 }
 
 try {
-    $sql = 'INSERT INTO patients (full_name, age, gender, ins_type, provider, deductible, primary_doctor_id)
-            VALUES (?, ?, ?, ?, ?, ?, ?)';
+    $nextId = (int) db()->query('SELECT COALESCE(MAX(patient_id), 0) + 1 FROM patients')->fetchColumn();
+    $sql = 'INSERT INTO patients (patient_id, full_name, age, gender, ins_type, provider, deductible, prim_doctor)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
     $st = db()->prepare($sql);
-    $st->execute([$full, $age, $gender, $insType, $provider, $deductible, $prim]);
-    $id = (int) db()->lastInsertId();
+    $st->execute([$nextId, $full, $age, $gender, $insType, $provider, $deductible, $prim]);
+    $id = $nextId;
     redirect('../PatientRegistration.php?ok=' . urlencode("Patient registered successfully. New patient ID: {$id}."));
 } catch (PDOException $e) {
-    if ((int) $e->errorInfo[1] === 1062) {
+    $code = (int) ($e->errorInfo[1] ?? 0);
+    if ($code === 1062) {
         fail('Duplicate or invalid data.');
     }
-    fail('Could not save patient. Check the database connection and that sql/create.sql has been applied.');
+    if ($code === 1451 || $code === 1452) {
+        fail('Could not save patient: referenced primary doctor does not exist.');
+    }
+    fail('Database error while saving patient. Check that sql/create.sql has been applied.');
 }

@@ -1,86 +1,87 @@
--- Hospital records — physical schema for CS 4347-style project
--- MySQL 8.x compatible. Run after creating database: CREATE DATABASE hospital_records CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-
-SET NAMES utf8mb4;
-SET FOREIGN_KEY_CHECKS = 0;
-
-DROP TABLE IF EXISTS visit_doctors;
-DROP TABLE IF EXISTS visits;
-DROP TABLE IF EXISTS patients;
-DROP TABLE IF EXISTS doctors;
-DROP TABLE IF EXISTS conditions;
-DROP TABLE IF EXISTS departments;
-
-SET FOREIGN_KEY_CHECKS = 1;
-
-CREATE TABLE departments (
-  department_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  dept_name VARCHAR(100) NOT NULL,
-  dept_location VARCHAR(100) NULL,
-  PRIMARY KEY (department_id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-CREATE TABLE doctors (
-  doctor_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  doctor_name VARCHAR(100) NOT NULL,
-  specialization VARCHAR(100) NULL,
-  department_id INT UNSIGNED NOT NULL,
-  PRIMARY KEY (doctor_id),
-  CONSTRAINT fk_doctors_department
-    FOREIGN KEY (department_id) REFERENCES departments (department_id)
-    ON UPDATE CASCADE ON DELETE RESTRICT
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-CREATE TABLE conditions (
-  condition_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  condition_name VARCHAR(100) NOT NULL,
-  PRIMARY KEY (condition_id),
-  UNIQUE KEY uq_conditions_name (condition_name)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-CREATE TABLE patients (
-  patient_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  full_name VARCHAR(100) NOT NULL,
-  age INT UNSIGNED NOT NULL,
-  gender VARCHAR(50) NOT NULL,
-  ins_type VARCHAR(50) NULL,
-  provider VARCHAR(100) NULL,
-  deductible DECIMAL(12,2) NULL,
-  primary_doctor_id INT UNSIGNED NULL,
-  PRIMARY KEY (patient_id),
-  CONSTRAINT fk_patients_primary_doctor
-    FOREIGN KEY (primary_doctor_id) REFERENCES doctors (doctor_id)
-    ON UPDATE CASCADE ON DELETE SET NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-CREATE TABLE visits (
-  visit_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  patient_id INT UNSIGNED NOT NULL,
-  condition_id INT UNSIGNED NULL,
-  procedure_text VARCHAR(100) NULL,
-  cost DECIMAL(12,2) NOT NULL DEFAULT 0.00,
-  length_of_stay INT UNSIGNED NULL,
-  satisfaction TINYINT UNSIGNED NULL,
-  outcome VARCHAR(50) NULL,
-  read_admission TINYINT(1) NULL,
-  visit_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (visit_id),
-  CONSTRAINT fk_visits_patient
-    FOREIGN KEY (patient_id) REFERENCES patients (patient_id)
-    ON UPDATE CASCADE ON DELETE CASCADE,
-  CONSTRAINT fk_visits_condition
-    FOREIGN KEY (condition_id) REFERENCES conditions (condition_id)
-    ON UPDATE CASCADE ON DELETE SET NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-CREATE TABLE visit_doctors (
-  visit_id INT UNSIGNED NOT NULL,
-  doctor_id INT UNSIGNED NOT NULL,
-  PRIMARY KEY (visit_id, doctor_id),
-  CONSTRAINT fk_vd_visit
-    FOREIGN KEY (visit_id) REFERENCES visits (visit_id)
-    ON UPDATE CASCADE ON DELETE CASCADE,
-  CONSTRAINT fk_vd_doctor
-    FOREIGN KEY (doctor_id) REFERENCES doctors (doctor_id)
-    ON UPDATE CASCADE ON DELETE RESTRICT
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+-- create.sql
+-- sets up all the tables for the hospital records system
+-- run this on a fresh db before loading any data
+-- --------------------------------------------------------
+-- patients table -- core entity, every visit points back here
+-- prim_doctor is nullable bc patient might not have one assigned yet
+-- --------------------------------------------------------
+CREATE TABLE PATIENTS(
+ Patient_ID INT PRIMARY KEY,
+ Full_Name VARCHAR(100) NOT NULL,
+ Age INT NOT NULL,
+ Gender VARCHAR(20) NOT NULL,
+ Ins_Type VARCHAR(50), -- type of insurance (ppo, hmo, etc)
+ Provider VARCHAR(100), -- insurance company name
+ Deductible DECIMAL(10,2), -- deductable amount, can be null
+ Prim_Doctor INT -- fk to doctors, set later
+);
+-- --------------------------------------------------------
+-- departments -- things like cardiology, emergency, etc
+-- location is optional, some places dont track this
+-- --------------------------------------------------------
+CREATE TABLE DEPARTMENTS(
+ Department_ID INT PRIMARY KEY,
+ Department_Name VARCHAR(100) NOT NULL,
+ Location VARCHAR(100) -- wing/floor, nullable
+);
+-- --------------------------------------------------------
+-- doctors -- each one belongs to exactly one departement
+-- --------------------------------------------------------
+CREATE TABLE DOCTORS(
+ Doctor_ID INT PRIMARY KEY,
+ Doctor_Name VARCHAR(100) NOT NULL,
+ Specialization VARCHAR(100), -- can be null if general practitoner
+ Department_ID INT NOT NULL -- fk to departments
+);
+-- --------------------------------------------------------
+-- conditions -- lookup table so we dont repeat strings in visits
+-- things like diabetes, heart disease, stroke, etc
+-- --------------------------------------------------------
+CREATE TABLE CONDITIONS(
+ Condition_ID INT PRIMARY KEY,
+ Condition_Name VARCHAR(100) NOT NULL
+);
+-- --------------------------------------------------------
+-- visits -- the main table, one row per hospital encounter
+-- cost defaults to 0 just in case it gets entered later
+-- --------------------------------------------------------
+CREATE TABLE VISITS(
+ Visit_ID INT PRIMARY KEY,
+ Patient_ID INT NOT NULL, -- fk to patients
+ Doctor_ID INT NOT NULL, -- fk to doctors
+ Satisfaction INT, -- score 1-10, optional
+ Procedure_Name VARCHAR(100), -- what was done during the visit
+ Cost DECIMAL(10,2) DEFAULT 0.00,
+ Length_of_Stay INT, -- days stayed, can be null
+ Re_Admission BOOLEAN, -- was patient readmitted
+ Outcome VARCHAR(50) -- discharged, improved, etc
+);
+-- --------------------------------------------------------
+-- visits_conditions -- m:n junction between visits and conditions
+-- a single visit can have multiple conditions and vice versa
+-- --------------------------------------------------------
+CREATE TABLE VISITS_CONDITIONS(
+ Visit_ID INT, -- fk to visits
+ Condition_ID INT, -- fk to conditions
+ PRIMARY KEY (Visit_ID, Condition_ID)
+);
+-- --------------------------------------------------------
+-- foreign key constraints -- added after table creation
+-- --------------------------------------------------------
+-- patients.prim_doctor -> doctors
+ALTER TABLE PATIENTS
+ADD FOREIGN KEY (Prim_Doctor) REFERENCES DOCTORS(Doctor_ID);
+-- doctors.department_id -> departments
+ALTER TABLE DOCTORS
+ADD FOREIGN KEY (Department_ID) REFERENCES DEPARTMENTS(Department_ID);
+-- visits.patient_id -> patients
+ALTER TABLE VISITS
+ADD FOREIGN KEY (Patient_ID) REFERENCES PATIENTS(Patient_ID);
+-- visits.doctor_id -> doctors
+ALTER TABLE VISITS
+ADD FOREIGN KEY (Doctor_ID) REFERENCES DOCTORS(Doctor_ID);
+-- junction table fks
+ALTER TABLE VISITS_CONDITIONS
+ADD FOREIGN KEY (Visit_ID) REFERENCES VISITS(Visit_ID);
+ALTER TABLE VISITS_CONDITIONS
+ADD FOREIGN KEY (Condition_ID) REFERENCES CONDITIONS(Condition_ID);

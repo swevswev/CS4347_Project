@@ -78,9 +78,6 @@ $conditions = db()->query('SELECT condition_id, condition_name FROM conditions O
     input.no-spinner::-webkit-outer-spin-button,
     input.no-spinner::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
     input.no-spinner { -moz-appearance: textfield; appearance: textfield; }
-    .doctor-row-tools { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
-    .doctor-row-tools > input { flex: 1; min-width: 0; width: auto; max-width: 100%; }
-    button.doctor-remove { background: #fff; color: var(--text); }
     .banner { padding: 0.75rem 1rem; border-radius: 6px; margin-bottom: 1rem; font-size: 0.9rem; }
     .banner-error { background: #ffebe9; border: 1px solid #ff8182; color: #82071e; }
     .banner-success { background: #dafbe1; border: 1px solid #4ac26b; color: #116329; }
@@ -104,28 +101,11 @@ $conditions = db()->query('SELECT condition_id, condition_name FROM conditions O
           <label for="patient_id">Patient ID</label>
           <input type="number" class="no-spinner" id="patient_id" name="patient_id" required min="1" step="1" inputmode="numeric" placeholder="Patient_ID">
         </div>
-        <div id="doctor-rows">
-          <div class="row doctor-row">
-            <label for="doctor_id_main">Doctor ID <span class="hint">(at least one)</span></label>
-            <div class="doctor-row-tools">
-              <input type="number" class="no-spinner" id="doctor_id_main" name="doctor_id[]" required min="1" step="1" inputmode="numeric" placeholder="Doctor_ID">
-            </div>
-          </div>
-        </div>
         <div class="row">
-          <button type="button" id="add-doctor-btn">Add another doctor</button>
+          <label for="doctor_id">Doctor ID</label>
+          <input type="number" class="no-spinner" id="doctor_id" name="doctor_id" required min="1" step="1" inputmode="numeric" placeholder="Doctor_ID">
         </div>
       </fieldset>
-
-      <template id="doctor-row-template">
-        <div class="row doctor-row">
-          <label>Doctor ID <span class="hint">(optional)</span></label>
-          <div class="doctor-row-tools">
-            <input type="number" class="no-spinner" name="doctor_id[]" min="1" step="1" inputmode="numeric" placeholder="Doctor_ID">
-            <button type="button" class="doctor-remove">Remove</button>
-          </div>
-        </div>
-      </template>
 
       <fieldset>
         <legend>Reason &amp; procedure</legend>
@@ -167,8 +147,8 @@ $conditions = db()->query('SELECT condition_id, condition_name FROM conditions O
           <input type="text" id="outcome" name="outcome" maxlength="50" placeholder="e.g. discharged, improved, critical">
         </div>
         <div class="row">
-          <label for="read_admission">Readmission</label>
-          <select id="read_admission" name="read_admission">
+          <label for="re_admission">Readmission</label>
+          <select id="re_admission" name="re_admission">
             <option value="" selected>Not specified</option>
             <option value="1">Yes</option>
             <option value="0">No</option>
@@ -182,37 +162,5 @@ $conditions = db()->query('SELECT condition_id, condition_name FROM conditions O
       </div>
     </form>
   </main>
-  <script>
-    (function () {
-      var container = document.getElementById('doctor-rows');
-      var template = document.getElementById('doctor-row-template');
-      var form = container.closest('form');
-      var addBtn = document.getElementById('add-doctor-btn');
-      var doctorRowCounter = 0;
-
-      addBtn.addEventListener('click', function () {
-        doctorRowCounter += 1;
-        var frag = template.content.cloneNode(true);
-        var input = frag.querySelector('input');
-        var id = 'doctor_id_extra_' + doctorRowCounter;
-        input.id = id;
-        frag.querySelector('label').setAttribute('for', id);
-        container.appendChild(frag);
-      });
-
-      container.addEventListener('click', function (e) {
-        var btn = e.target.closest('.doctor-remove');
-        if (!btn) return;
-        var row = btn.closest('.doctor-row');
-        if (row && row !== container.firstElementChild) row.remove();
-      });
-
-      form.addEventListener('reset', function () {
-        while (container.lastElementChild !== container.firstElementChild) {
-          container.removeChild(container.lastElementChild);
-        }
-      });
-    })();
-  </script>
 </body>
 </html>

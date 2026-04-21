@@ -23,18 +23,15 @@ if (!$st->fetchColumn()) {
     failVisit('Patient ID does not exist.');
 }
 
-$doctorIds = int_list_from_post($_POST['doctor_id'] ?? null);
-$doctorIds = array_values(array_unique($doctorIds));
-if ($doctorIds === []) {
-    failVisit('Enter at least one doctor ID.');
+$doctorId = filter_var($_POST['doctor_id'] ?? null, FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]);
+if ($doctorId === false) {
+    failVisit('Doctor ID must be a positive integer.');
 }
 
 $stDoc = db()->prepare('SELECT 1 FROM doctors WHERE doctor_id = ?');
-foreach ($doctorIds as $did) {
-    $stDoc->execute([$did]);
-    if (!$stDoc->fetchColumn()) {
-        failVisit("Doctor ID {$did} does not exist. Add the doctor in Admin first.");
-    }
+$stDoc->execute([$doctorId]);
+if (!$stDoc->fetchColumn()) {
+    failVisit("Doctor ID {$doctorId} does not exist. Add the doctor in Admin first.");
 }
 
 $conditionId = null;
@@ -51,7 +48,10 @@ if (isset($_POST['condition_id']) && $_POST['condition_id'] !== '') {
 }
 
 $procedure = trim((string) ($_POST['procedure'] ?? ''));
-$procedure = $procedure === '' ? null : (strlen($procedure) > 100 ? substr($procedure, 0, 100) : $procedure);
+if ($procedure !== '' && strlen($procedure) > 100) {
+    failVisit('Procedure must be at most 100 characters.');
+}
+$procedure = $procedure === '' ? null : $procedure;
 
 $cost = filter_var($_POST['cost'] ?? null, FILTER_VALIDATE_FLOAT);
 if ($cost === false || $cost < 0) {
@@ -75,35 +75,41 @@ if (isset($_POST['satisfaction']) && $_POST['satisfaction'] !== '') {
 }
 
 $outcome = trim((string) ($_POST['outcome'] ?? ''));
-$outcome = $outcome === '' ? null : (strlen($outcome) > 50 ? substr($outcome, 0, 50) : $outcome);
+if ($outcome !== '' && strlen($outcome) > 50) {
+    failVisit('Outcome must be at most 50 characters.');
+}
+$outcome = $outcome === '' ? null : $outcome;
 
 $read = null;
-$ra = $_POST['read_admission'] ?? '';
+$ra = $_POST['re_admission'] ?? '';
 if ($ra === '1' || $ra === '0') {
     $read = (int) $ra;
+} elseif ($ra !== '') {
+    failVisit('Readmission must be Yes, No, or not specified.');
 }
 
 $pdo = db();
 try {
     $pdo->beginTransaction();
+    $visitId = (int) $pdo->query('SELECT COALESCE(MAX(visit_id), 0) + 1 FROM visits')->fetchColumn();
     $ins = $pdo->prepare(
-        'INSERT INTO visits (patient_id, condition_id, procedure_text, cost, length_of_stay, satisfaction, outcome, read_admission)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?)'
+        'INSERT INTO visits (visit_id, patient_id, doctor_id, satisfaction, procedure_name, cost, length_of_stay, re_admission, outcome)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)'
     );
     $ins->execute([
+        $visitId,
         $patientId,
-        $conditionId,
+        $doctorId,
+        $sat,
         $procedure,
         $cost,
         $los,
-        $sat,
-        $outcome,
         $read,
+        $outcome,
     ]);
-    $visitId = (int) $pdo->lastInsertId();
-    $vd = $pdo->prepare('INSERT INTO visit_doctors (visit_id, doctor_id) VALUES (?, ?)');
-    foreach ($doctorIds as $did) {
-        $vd->execute([$visitId, $did]);
+    if ($conditionId !== null) {
+        $vc = $pdo->prepare('INSERT INTO visits_conditions (visit_id, condition_id) VALUES (?, ?)');
+        $vc->execute([$visitId, $conditionId]);
     }
     $pdo->commit();
     redirect('../VisitLog.php?ok=' . urlencode("Visit logged. Visit ID: {$visitId}."));
@@ -111,5 +117,12 @@ try {
     if ($pdo->inTransaction()) {
         $pdo->rollBack();
     }
-    failVisit('Could not save visit. If doctors are linked to visits, check foreign key constraints.');
+    $code = (int) ($e->errorInfo[1] ?? 0);
+    if ($code === 1451 || $code === 1452) {
+        failVisit('Could not save visit: related patient, doctor, or condition record is missing/invalid.');
+    }
+    if ($code === 1062) {
+        failVisit('Could not save visit: duplicate visit identifier detected. Please retry.');
+    }
+    failVisit('Database error while saving visit. Please try again.');
 }

@@ -1,0 +1,984 @@
+1,264,6,1,Knee Replacement,5895.07,14,1,Recovered
+2,292,6,6,Endoscopy,22193.47,12,0,Discharged
+3,475,11,3,Biopsy,29005.84,6,0,Recovered
+4,82,3,6,Physical Therapy,14449.95,11,0,Critical
+5,800,14,6,Stress Test,23681.64,8,0,Improved
+6,24,3,4,Chemotherapy,42349.46,12,0,Improved
+7,106,2,2,Colonoscopy,24905.3,1,0,Recovered
+8,269,10,3,MRI Scan,29640.05,7,0,Improved
+9,291,8,3,Ultrasound,23940.03,3,0,Discharged
+10,885,8,8,Echocardiogram,42101.16,9,0,Improved
+11,612,8,10,Knee Replacement,23793.96,11,0,Critical
+12,825,2,8,Dialysis,16777.36,5,1,Critical
+13,536,14,3,Coronary Bypass,13260.92,9,0,Stable
+14,785,7,5,Laparoscopy,10789.09,1,0,Improved
+15,448,7,4,Biopsy,32314.74,11,0,Stable
+16,82,7,4,Endoscopy,34521.95,10,0,Critical
+17,874,2,3,Ultrasound,13386.99,11,0,Recovered
+18,638,8,4,Appendectomy,1363.1,1,0,Improved
+19,276,3,8,Blood Panel,10860.07,3,0,Stable
+20,431,5,8,Coronary Bypass,21133.96,13,0,Critical
+21,769,3,1,Chemotherapy,35016.55,2,0,Improved
+22,862,5,7,Blood Panel,5927.29,13,1,Stable
+23,35,4,8,CT Scan,23690.69,4,0,Stable
+24,163,11,1,Echocardiogram,23681.22,5,0,Critical
+25,909,1,4,CT Scan,11000.48,7,0,Discharged
+26,283,10,2,Hip Replacement,35616.9,1,0,Recovered
+27,159,6,2,Physical Therapy,7517.58,2,0,Discharged
+28,661,3,9,CT Scan,6099.32,4,0,Recovered
+29,751,4,1,Hip Replacement,16438.45,3,0,Discharged
+30,573,5,9,Colonoscopy,8945.02,3,0,Critical
+31,852,10,9,Biopsy,3565.01,3,0,Critical
+32,465,1,9,Hip Replacement,33147.77,1,0,Recovered
+33,739,2,9,Hip Replacement,8949.19,11,0,Recovered
+34,290,6,7,Appendectomy,5415.65,9,0,Discharged
+35,895,1,4,CT Scan,22098.98,2,0,Recovered
+36,539,10,10,Chemotherapy,2684.31,4,0,Discharged
+37,504,15,2,Spinal Tap,36145.39,1,0,Recovered
+38,814,12,1,Laparoscopy,12328.8,1,0,Critical
+39,984,9,2,CT Scan,32770.15,9,0,Improved
+40,673,4,10,Biopsy,25349.84,9,0,Discharged
+41,720,11,7,CT Scan,7923.01,3,0,Recovered
+42,547,10,8,Coronary Bypass,40660.58,9,0,Critical
+43,441,14,6,Laparoscopy,11212.15,9,1,Stable
+44,459,7,1,X-Ray,44241.56,10,0,Recovered
+45,310,1,5,Physical Therapy,10059.62,6,0,Critical
+46,39,8,6,Ultrasound,6659.16,6,1,Improved
+47,95,10,7,Stress Test,41345.74,12,0,Critical
+48,846,15,10,CT Scan,26987.79,5,0,Recovered
+49,58,15,6,Coronary Bypass,39650.77,7,0,Discharged
+50,669,14,10,Blood Panel,28707.98,11,0,Discharged
+51,327,9,10,Ultrasound,15044.01,12,1,Improved
+52,750,7,8,Laparoscopy,26098.84,2,1,Stable
+53,152,3,6,MRI Scan,21675.53,12,0,Recovered
+54,409,9,7,Ultrasound,34410.46,8,1,Stable
+55,201,9,10,Endoscopy,11457.94,2,0,Stable
+56,92,2,7,Knee Replacement,16754.41,4,0,Critical
+57,313,3,6,Laparoscopy,37060.49,13,0,Recovered
+58,46,15,4,EKG,30998.49,3,0,Discharged
+59,972,10,3,Dialysis,1111.13,12,0,Critical
+60,340,4,9,EKG,9569.16,9,0,Recovered
+61,145,12,1,Hip Replacement,26443.72,11,0,Critical
+62,291,4,10,Chemotherapy,2862.29,11,0,Discharged
+63,679,14,6,CT Scan,1348.99,14,0,Improved
+64,102,15,6,Colonoscopy,39071.39,9,0,Improved
+65,469,9,1,X-Ray,11508.95,9,0,Critical
+66,161,1,6,Coronary Bypass,16314.33,5,1,Recovered
+67,641,5,7,Blood Panel,42514.08,5,1,Improved
+68,673,3,2,Hip Replacement,23671.94,11,1,Stable
+69,157,7,5,Laparoscopy,15153.17,9,1,Improved
+70,555,11,4,Ultrasound,14250.43,12,1,Stable
+71,956,10,3,Appendectomy,3517.72,9,0,Improved
+72,745,1,6,Knee Replacement,43273.23,5,0,Critical
+73,193,2,3,Biopsy,1665.82,10,0,Recovered
+74,238,4,1,Coronary Bypass,4036.66,13,0,Improved
+75,383,3,7,Colonoscopy,21586.19,3,1,Improved
+76,783,1,5,Knee Replacement,10403.66,11,1,Improved
+77,950,8,10,Colonoscopy,31109.89,14,0,Improved
+78,43,10,7,Appendectomy,18039.71,12,0,Recovered
+79,468,14,1,Physical Therapy,23582.27,7,0,Recovered
+80,646,1,4,Dialysis,20060.15,5,0,Stable
+81,302,10,1,Endoscopy,40713.57,8,0,Discharged
+82,798,10,9,Ultrasound,17991.47,6,0,Discharged
+83,605,15,4,Spinal Tap,4512.99,6,1,Discharged
+84,724,8,6,MRI Scan,23809.87,7,1,Stable
+85,175,15,6,Stress Test,39273.09,14,1,Improved
+86,788,12,1,Knee Replacement,14208.77,12,0,Critical
+87,921,3,4,Blood Panel,28203.93,5,0,Stable
+88,557,13,1,Laparoscopy,39780.28,4,1,Recovered
+89,453,2,10,Laparoscopy,792.5,9,0,Recovered
+90,190,3,1,Coronary Bypass,2134.09,14,0,Recovered
+91,51,2,7,Biopsy,7679.42,5,1,Stable
+92,96,13,5,Appendectomy,16901.34,7,0,Stable
+93,483,3,2,Chemotherapy,15149.78,7,1,Improved
+94,586,12,9,MRI Scan,22023.0,12,0,Stable
+95,589,10,6,Ultrasound,27835.9,8,0,Stable
+96,625,4,5,EKG,570.35,1,0,Discharged
+97,631,7,7,X-Ray,15353.76,9,1,Discharged
+98,289,5,2,Dialysis,13862.64,9,0,Discharged
+99,342,6,7,Stress Test,27911.7,1,1,Improved
+100,945,11,8,Colonoscopy,35977.82,11,1,Stable
+101,472,15,9,Appendectomy,21079.92,14,0,Discharged
+102,695,6,9,Echocardiogram,1332.97,10,0,Critical
+103,288,14,1,Appendectomy,44271.04,11,1,Recovered
+104,120,14,5,Appendectomy,32087.88,5,0,Discharged
+105,381,8,5,EKG,23866.97,3,0,Critical
+106,207,15,2,Spinal Tap,23016.76,13,0,Recovered
+107,349,15,8,Endoscopy,14310.96,6,1,Discharged
+108,742,1,8,Hip Replacement,32258.64,9,0,Discharged
+109,704,14,10,MRI Scan,15331.39,1,0,Recovered
+110,777,5,4,Appendectomy,9424.72,5,0,Recovered
+111,688,2,5,Ultrasound,7508.57,2,0,Recovered
+112,556,6,9,Appendectomy,12561.82,12,0,Recovered
+113,73,5,10,Appendectomy,24555.68,1,1,Discharged
+114,52,2,7,X-Ray,4332.32,7,1,Recovered
+115,320,6,4,Echocardiogram,3995.28,13,0,Recovered
+116,833,13,8,CT Scan,20773.5,11,0,Stable
+117,148,14,10,Chemotherapy,41122.34,7,1,Critical
+118,31,2,8,CT Scan,16139.12,8,1,Critical
+119,131,9,2,Hip Replacement,36881.1,13,0,Critical
+120,310,9,8,Hip Replacement,26778.85,4,1,Recovered
+121,394,2,6,EKG,36719.25,10,0,Stable
+122,242,3,2,Stress Test,37735.29,2,0,Critical
+123,456,3,5,Hip Replacement,3597.54,2,0,Critical
+124,63,2,4,Ultrasound,39983.14,13,0,Improved
+125,545,5,7,Laparoscopy,26217.95,4,1,Critical
+126,936,11,5,Knee Replacement,32441.71,6,0,Recovered
+127,523,7,3,Dialysis,3277.27,9,0,Discharged
+128,289,14,1,Physical Therapy,19711.34,10,0,Critical
+129,446,9,4,Biopsy,21631.78,4,0,Critical
+130,894,11,3,Ultrasound,1016.32,11,0,Improved
+131,140,2,3,Knee Replacement,38776.8,13,0,Recovered
+132,522,7,9,Spinal Tap,17619.8,4,1,Stable
+133,511,14,4,Endoscopy,12481.64,9,0,Discharged
+134,495,12,6,CT Scan,26321.96,12,0,Improved
+135,81,9,10,MRI Scan,11412.79,11,0,Recovered
+136,926,6,9,Blood Panel,21364.66,9,0,Recovered
+137,984,13,5,Dialysis,7954.11,12,0,Recovered
+138,485,10,3,Stress Test,2797.08,5,0,Critical
+139,518,2,5,Chemotherapy,6397.97,5,0,Critical
+140,115,10,3,Stress Test,33384.04,11,0,Critical
+141,802,12,4,Colonoscopy,8546.01,9,0,Critical
+142,610,15,3,Colonoscopy,33997.88,7,0,Improved
+143,172,4,10,Coronary Bypass,2917.5,5,0,Discharged
+144,409,8,5,Colonoscopy,33703.7,13,1,Stable
+145,149,9,7,Blood Panel,13351.25,13,0,Stable
+146,979,1,2,Echocardiogram,28865.37,14,0,Recovered
+147,274,13,2,Chemotherapy,29618.28,7,0,Improved
+148,346,11,3,Appendectomy,24868.76,11,0,Discharged
+149,101,9,2,Spinal Tap,16142.48,12,0,Critical
+150,25,10,2,X-Ray,42263.49,11,1,Recovered
+151,981,2,2,Laparoscopy,6280.87,11,1,Discharged
+152,302,8,2,Spinal Tap,41559.94,5,0,Critical
+153,76,5,1,Hip Replacement,17792.27,1,0,Critical
+154,72,8,4,Laparoscopy,17972.23,11,0,Discharged
+155,788,7,4,Laparoscopy,29128.55,8,0,Discharged
+156,73,10,5,Spinal Tap,1335.03,8,1,Discharged
+157,400,5,3,Appendectomy,40755.48,10,0,Recovered
+158,414,14,2,Echocardiogram,10550.18,7,0,Discharged
+159,311,7,1,MRI Scan,16758.31,14,0,Discharged
+160,297,11,4,Biopsy,25174.16,7,1,Critical
+161,646,12,6,Colonoscopy,4276.38,11,0,Improved
+162,198,1,10,Physical Therapy,22270.85,2,0,Stable
+163,348,1,6,X-Ray,18545.1,4,0,Recovered
+164,594,4,2,X-Ray,33227.96,8,0,Stable
+165,719,11,3,Blood Panel,8165.08,1,0,Discharged
+166,856,10,2,CT Scan,5581.0,10,1,Discharged
+167,346,13,7,Appendectomy,5875.71,11,1,Critical
+168,47,10,3,Appendectomy,3313.37,5,1,Stable
+169,379,9,3,Spinal Tap,11342.19,10,0,Improved
+170,868,11,10,Hip Replacement,35105.94,1,0,Discharged
+171,184,15,2,Stress Test,39967.72,7,0,Improved
+172,656,5,9,Spinal Tap,18835.39,3,0,Recovered
+173,512,10,2,Dialysis,15979.48,1,1,Improved
+174,98,10,6,Echocardiogram,23085.56,8,1,Critical
+175,116,13,3,Colonoscopy,22639.41,3,0,Discharged
+176,446,5,6,Laparoscopy,36329.34,13,0,Discharged
+177,54,15,9,Biopsy,7533.03,1,0,Recovered
+178,917,4,8,Stress Test,26299.4,7,1,Critical
+179,113,6,4,CT Scan,11051.77,7,1,Stable
+180,483,10,8,X-Ray,40126.75,3,1,Recovered
+181,383,3,8,EKG,28624.94,5,1,Critical
+182,709,10,1,Chemotherapy,6574.32,14,0,Stable
+183,352,4,5,Laparoscopy,7477.07,13,1,Recovered
+184,422,14,9,Colonoscopy,38867.86,4,0,Stable
+185,439,12,4,Physical Therapy,15064.67,10,1,Recovered
+186,588,15,1,Knee Replacement,44118.19,1,0,Recovered
+187,544,7,8,CT Scan,20633.64,4,0,Recovered
+188,750,7,4,Ultrasound,16449.05,4,0,Discharged
+189,166,12,8,Stress Test,33754.26,1,0,Stable
+190,721,7,3,Coronary Bypass,28393.09,12,0,Discharged
+191,341,9,1,Dialysis,19452.65,5,1,Discharged
+192,528,15,6,X-Ray,5438.01,6,0,Recovered
+193,376,3,9,MRI Scan,25453.74,13,1,Improved
+194,117,11,8,Stress Test,39265.35,12,1,Improved
+195,516,11,7,Chemotherapy,2923.47,6,0,Stable
+196,850,2,8,Echocardiogram,30684.72,9,0,Stable
+197,969,12,2,EKG,40189.69,8,0,Discharged
+198,296,2,2,Biopsy,12779.45,12,1,Stable
+199,210,9,1,Dialysis,19035.88,11,1,Stable
+200,756,11,1,Dialysis,8913.2,1,1,Recovered
+201,352,11,6,Colonoscopy,26904.4,12,0,Stable
+202,920,13,5,Biopsy,35622.41,4,0,Critical
+203,49,3,6,Dialysis,20788.73,3,1,Recovered
+204,860,12,3,Biopsy,11086.79,1,0,Recovered
+205,267,6,3,EKG,25530.68,1,0,Critical
+206,460,9,3,Echocardiogram,13919.41,1,0,Stable
+207,951,6,3,Blood Panel,43671.68,9,0,Critical
+208,967,13,10,Ultrasound,36081.14,12,0,Critical
+209,491,15,1,Ultrasound,30671.37,2,0,Discharged
+210,226,8,6,MRI Scan,15023.31,10,1,Recovered
+211,959,13,5,EKG,1503.41,9,0,Discharged
+212,326,10,10,Endoscopy,42481.4,11,0,Stable
+213,875,7,6,Hip Replacement,17090.99,5,0,Critical
+214,575,2,4,Spinal Tap,33497.98,7,0,Critical
+215,746,15,7,Knee Replacement,6710.76,10,0,Improved
+216,487,14,9,Appendectomy,3442.15,10,0,Discharged
+217,655,15,5,Knee Replacement,8282.74,8,1,Improved
+218,391,5,9,Colonoscopy,2379.36,14,0,Recovered
+219,758,8,4,Blood Panel,35709.27,3,0,Critical
+220,682,15,5,Knee Replacement,8482.07,12,1,Discharged
+221,284,8,2,Laparoscopy,33677.67,10,0,Recovered
+222,644,11,8,CT Scan,17107.5,12,0,Critical
+223,60,3,6,Spinal Tap,39585.12,3,0,Improved
+224,370,7,6,X-Ray,13398.6,9,0,Recovered
+225,644,3,2,Laparoscopy,33991.97,9,0,Critical
+226,715,12,6,CT Scan,24281.7,6,1,Discharged
+227,289,6,8,Knee Replacement,15643.93,3,0,Improved
+228,227,14,4,Echocardiogram,27797.56,14,0,Stable
+229,120,14,3,Blood Panel,21838.56,5,0,Improved
+230,536,13,6,Biopsy,32090.32,1,0,Improved
+231,711,3,4,Dialysis,6077.82,3,0,Stable
+232,20,13,8,Knee Replacement,2392.0,2,0,Recovered
+233,122,15,5,X-Ray,3448.01,11,0,Discharged
+234,617,4,10,EKG,8722.79,6,0,Discharged
+235,765,5,10,Coronary Bypass,16173.05,14,1,Recovered
+236,840,10,1,Endoscopy,10156.41,4,0,Improved
+237,102,15,4,Endoscopy,38382.71,8,0,Recovered
+238,690,2,3,Coronary Bypass,44167.9,7,1,Recovered
+239,116,13,6,CT Scan,21232.63,9,1,Stable
+240,571,12,1,MRI Scan,15101.14,2,0,Critical
+241,320,11,8,Physical Therapy,25149.26,5,0,Improved
+242,862,13,8,Coronary Bypass,8478.73,11,0,Discharged
+243,675,11,2,CT Scan,6879.86,7,0,Improved
+244,204,6,4,Laparoscopy,38059.31,7,0,Improved
+245,286,13,10,Stress Test,12647.29,13,0,Critical
+246,973,7,8,Endoscopy,12910.63,13,0,Discharged
+247,502,8,4,Ultrasound,1822.7,12,0,Discharged
+248,184,7,10,Appendectomy,7296.78,10,0,Discharged
+249,207,5,8,Colonoscopy,22963.37,9,0,Recovered
+250,33,7,2,Hip Replacement,20530.14,14,0,Stable
+251,182,9,5,Biopsy,22370.84,3,0,Stable
+252,583,11,8,Echocardiogram,30999.15,10,0,Stable
+253,58,7,5,Colonoscopy,26801.51,7,0,Critical
+254,605,1,3,Coronary Bypass,16025.02,12,0,Critical
+255,354,6,7,Coronary Bypass,3011.99,4,1,Improved
+256,933,12,2,Dialysis,5593.97,3,0,Recovered
+257,674,14,7,Stress Test,23406.81,7,0,Discharged
+258,325,7,10,Hip Replacement,14847.75,2,0,Discharged
+259,509,9,6,Biopsy,27859.84,6,0,Improved
+260,807,2,9,EKG,13287.32,1,0,Recovered
+261,640,12,2,Stress Test,4715.65,6,0,Discharged
+262,356,13,2,Dialysis,22956.46,5,0,Recovered
+263,412,5,10,Endoscopy,20668.67,13,1,Discharged
+264,512,4,8,Chemotherapy,42203.75,9,0,Recovered
+265,206,6,8,Ultrasound,11196.64,12,0,Stable
+266,851,15,2,EKG,38145.53,5,0,Improved
+267,242,7,4,CT Scan,7173.32,1,1,Critical
+268,447,7,1,EKG,7591.45,3,0,Critical
+269,181,11,1,Colonoscopy,35309.4,1,0,Critical
+270,923,7,6,MRI Scan,18161.83,14,1,Improved
+271,753,9,2,Endoscopy,30057.66,10,0,Stable
+272,615,2,6,Appendectomy,37538.87,12,0,Improved
+273,110,3,4,Chemotherapy,20056.66,5,0,Stable
+274,325,9,7,Colonoscopy,30881.86,5,1,Critical
+275,842,5,1,Laparoscopy,2049.02,12,0,Improved
+276,317,11,6,CT Scan,24303.53,4,0,Stable
+277,984,7,5,Dialysis,4516.14,14,1,Critical
+278,912,3,8,Appendectomy,39636.29,13,0,Discharged
+279,843,13,8,Colonoscopy,33293.92,14,0,Stable
+280,165,12,5,Endoscopy,3453.34,7,0,Stable
+281,54,11,3,Spinal Tap,35700.36,3,0,Stable
+282,313,6,10,MRI Scan,5431.85,4,1,Recovered
+283,463,8,3,Chemotherapy,8219.82,10,0,Critical
+284,425,6,3,Hip Replacement,39499.36,14,1,Discharged
+285,572,11,10,Physical Therapy,40854.59,8,1,Critical
+286,411,10,7,Laparoscopy,12077.02,2,0,Improved
+287,736,9,7,Spinal Tap,37312.96,8,0,Improved
+288,969,14,5,Dialysis,33716.71,7,1,Stable
+289,221,14,5,EKG,19115.73,7,1,Discharged
+290,633,8,4,Coronary Bypass,26439.19,11,0,Discharged
+291,137,14,6,Hip Replacement,31064.93,12,0,Stable
+292,571,1,1,Appendectomy,41932.38,8,0,Recovered
+293,260,9,10,Hip Replacement,13961.58,7,0,Improved
+294,184,5,3,Endoscopy,22431.37,6,0,Improved
+295,728,9,7,Ultrasound,12088.07,6,0,Improved
+296,288,12,6,Knee Replacement,13090.19,5,0,Recovered
+297,324,12,8,Ultrasound,25227.52,11,0,Discharged
+298,56,4,3,X-Ray,21426.02,3,0,Stable
+299,950,8,1,Spinal Tap,16365.15,12,0,Stable
+300,738,14,3,CT Scan,16057.39,4,0,Improved
+301,521,14,5,Stress Test,40144.81,10,1,Recovered
+302,786,10,3,Knee Replacement,41458.39,4,0,Discharged
+303,698,11,2,Hip Replacement,17123.34,2,0,Improved
+304,472,14,8,Spinal Tap,28461.87,5,0,Critical
+305,638,8,6,Stress Test,6254.75,14,0,Critical
+306,762,2,9,Laparoscopy,17471.9,7,0,Improved
+307,887,7,2,Blood Panel,38429.39,3,0,Stable
+308,978,11,3,CT Scan,13785.33,13,0,Critical
+309,682,2,6,Endoscopy,9394.27,8,0,Stable
+310,434,2,7,Coronary Bypass,27817.12,7,0,Discharged
+311,350,8,4,Ultrasound,41914.71,9,0,Critical
+312,929,13,8,Dialysis,7112.99,3,0,Improved
+313,49,9,2,X-Ray,23346.95,9,0,Stable
+314,677,12,10,Chemotherapy,16317.86,10,0,Recovered
+315,759,11,8,Biopsy,35484.88,14,0,Discharged
+316,898,12,5,Appendectomy,26630.77,8,0,Recovered
+317,830,3,4,Biopsy,3980.81,10,0,Discharged
+318,6,7,2,Blood Panel,8142.22,8,0,Stable
+319,833,10,6,Hip Replacement,36306.51,2,1,Improved
+320,115,14,1,EKG,38726.04,4,0,Improved
+321,863,11,9,EKG,4331.16,13,0,Improved
+322,120,3,3,Spinal Tap,43392.08,8,0,Stable
+323,302,10,7,X-Ray,15356.33,2,0,Stable
+324,611,12,9,Dialysis,2147.27,7,0,Recovered
+325,63,9,1,Knee Replacement,26149.95,9,0,Critical
+326,120,8,10,Coronary Bypass,20450.48,7,0,Improved
+327,481,6,8,Physical Therapy,23089.8,10,0,Recovered
+328,741,12,7,Knee Replacement,37572.09,11,0,Stable
+329,213,5,2,Colonoscopy,6244.8,4,1,Recovered
+330,426,8,5,Physical Therapy,9819.77,1,0,Critical
+331,163,3,9,X-Ray,36403.29,6,0,Discharged
+332,576,4,8,Chemotherapy,44718.0,13,0,Discharged
+333,874,12,9,Laparoscopy,30292.12,12,0,Stable
+334,114,2,10,Laparoscopy,35305.95,2,0,Recovered
+335,646,2,4,Coronary Bypass,7487.95,5,0,Recovered
+336,102,3,6,Appendectomy,36952.65,2,1,Stable
+337,7,4,8,Appendectomy,13260.74,3,0,Critical
+338,425,6,4,Ultrasound,34017.68,9,0,Improved
+339,440,7,7,Spinal Tap,42856.9,9,0,Discharged
+340,11,12,9,MRI Scan,4272.63,6,0,Improved
+341,778,1,3,Stress Test,3072.54,11,0,Stable
+342,718,9,5,Appendectomy,40960.77,1,0,Recovered
+343,414,8,4,Echocardiogram,28284.01,10,0,Critical
+344,903,5,2,X-Ray,24415.79,7,1,Recovered
+345,524,9,5,Endoscopy,15661.55,11,1,Discharged
+346,816,9,10,Chemotherapy,11239.62,13,0,Stable
+347,62,14,6,Chemotherapy,28401.03,6,0,Discharged
+348,306,10,1,Spinal Tap,15584.62,4,1,Critical
+349,804,14,10,Ultrasound,32288.62,9,1,Discharged
+350,198,14,6,Spinal Tap,4860.46,12,0,Stable
+351,64,7,3,Colonoscopy,10057.91,2,0,Recovered
+352,532,13,7,Chemotherapy,26501.52,11,0,Stable
+353,844,3,3,Endoscopy,6157.02,12,0,Improved
+354,218,8,8,X-Ray,33719.09,9,0,Discharged
+355,379,10,5,X-Ray,23763.6,2,0,Critical
+356,498,1,3,Ultrasound,35378.77,7,0,Critical
+357,839,12,8,Blood Panel,5943.59,6,0,Discharged
+358,318,10,8,Appendectomy,35270.05,8,1,Improved
+359,684,8,3,Appendectomy,4474.52,10,0,Stable
+360,405,6,9,X-Ray,43134.54,8,0,Discharged
+361,26,10,5,Echocardiogram,29209.61,11,0,Improved
+362,535,4,8,Endoscopy,40410.46,2,1,Discharged
+363,252,14,10,Spinal Tap,4266.83,9,0,Stable
+364,883,15,1,Appendectomy,19947.28,7,0,Recovered
+365,94,2,2,Echocardiogram,7982.94,3,1,Critical
+366,315,7,3,X-Ray,27844.16,6,1,Discharged
+367,400,2,6,Ultrasound,18870.62,6,0,Stable
+368,208,4,10,Stress Test,11023.85,9,0,Discharged
+369,476,9,7,MRI Scan,22045.63,7,1,Discharged
+370,692,2,4,Echocardiogram,29494.02,3,0,Recovered
+371,867,11,9,EKG,35338.23,3,0,Recovered
+372,252,9,7,Echocardiogram,20602.52,1,0,Recovered
+373,1,1,8,Chemotherapy,27105.11,14,0,Critical
+374,861,9,5,X-Ray,7683.03,9,0,Critical
+375,716,2,3,Echocardiogram,44947.55,7,1,Recovered
+376,969,6,5,Spinal Tap,12649.08,11,0,Critical
+377,983,10,6,Blood Panel,41173.81,3,0,Recovered
+378,689,3,7,Echocardiogram,40339.43,12,0,Stable
+379,898,11,2,Echocardiogram,1877.16,14,0,Discharged
+380,848,10,6,Hip Replacement,8384.81,13,0,Discharged
+381,456,1,4,Blood Panel,34249.73,11,0,Improved
+382,629,11,5,Physical Therapy,10924.48,8,0,Discharged
+383,724,10,4,Blood Panel,9225.86,14,0,Discharged
+384,506,3,9,EKG,29862.81,10,1,Discharged
+385,67,3,5,Stress Test,38568.81,9,0,Improved
+386,695,9,10,Chemotherapy,30790.28,8,0,Stable
+387,962,6,7,Knee Replacement,12694.58,11,0,Stable
+388,45,15,4,X-Ray,12868.02,7,0,Critical
+389,200,6,2,Stress Test,36441.44,12,1,Stable
+390,256,4,3,Appendectomy,14330.86,11,0,Discharged
+391,25,10,6,Chemotherapy,11498.33,8,1,Critical
+392,342,9,4,MRI Scan,35020.85,10,0,Discharged
+393,88,1,1,Hip Replacement,14440.93,14,0,Improved
+394,822,8,1,Dialysis,27677.87,7,0,Discharged
+395,54,5,7,Hip Replacement,4764.45,13,0,Improved
+396,394,8,7,Laparoscopy,28055.76,6,0,Stable
+397,111,2,1,Laparoscopy,32241.82,10,1,Recovered
+398,522,5,6,Knee Replacement,21922.27,10,0,Improved
+399,817,1,1,Ultrasound,14369.18,7,0,Critical
+400,481,5,10,Appendectomy,13452.35,1,1,Discharged
+401,839,14,9,X-Ray,19281.72,4,1,Improved
+402,194,11,8,Spinal Tap,27189.42,6,0,Recovered
+403,167,2,8,X-Ray,22568.91,1,1,Improved
+404,245,8,6,Hip Replacement,9636.58,3,0,Critical
+405,367,1,9,CT Scan,6836.89,8,1,Recovered
+406,204,4,5,Biopsy,10243.05,5,1,Critical
+407,201,1,3,Chemotherapy,41023.88,1,1,Stable
+408,959,4,5,Spinal Tap,11186.67,13,0,Improved
+409,67,2,3,Ultrasound,35872.97,4,0,Critical
+410,652,4,1,Laparoscopy,26636.0,14,0,Improved
+411,645,13,5,Ultrasound,38391.87,10,0,Improved
+412,482,13,10,MRI Scan,7950.79,7,0,Stable
+413,730,6,9,Colonoscopy,32346.42,8,0,Critical
+414,598,11,1,EKG,10268.92,4,0,Improved
+415,436,15,7,Stress Test,7495.82,14,0,Critical
+416,770,2,5,Spinal Tap,23587.52,4,0,Stable
+417,479,7,7,Coronary Bypass,36300.45,6,0,Stable
+418,453,4,5,MRI Scan,16479.64,2,0,Recovered
+419,284,15,4,CT Scan,5777.16,6,0,Recovered
+420,202,11,6,Chemotherapy,13970.84,14,0,Improved
+421,771,12,9,Chemotherapy,879.76,5,0,Critical
+422,594,13,1,Colonoscopy,29607.05,13,1,Stable
+423,741,12,4,Colonoscopy,10900.68,10,0,Stable
+424,321,14,4,Knee Replacement,34770.83,12,0,Improved
+425,572,1,6,Ultrasound,26199.13,3,0,Discharged
+426,855,6,6,Physical Therapy,19152.06,11,0,Recovered
+427,24,10,1,Ultrasound,7339.26,6,0,Stable
+428,66,9,7,EKG,21627.61,6,0,Critical
+429,107,11,9,Biopsy,1926.63,12,0,Discharged
+430,72,15,7,Dialysis,9662.21,5,0,Stable
+431,531,1,3,Appendectomy,38756.98,7,0,Improved
+432,550,7,8,MRI Scan,17810.18,14,1,Improved
+433,443,14,8,Biopsy,27365.07,5,1,Recovered
+434,8,3,8,MRI Scan,37193.93,10,1,Recovered
+435,901,8,8,Spinal Tap,26137.91,12,0,Critical
+436,863,12,5,Hip Replacement,27779.72,13,1,Stable
+437,922,10,7,Spinal Tap,17617.59,11,1,Recovered
+438,716,1,4,Biopsy,12683.04,11,0,Discharged
+439,506,7,9,CT Scan,44791.58,2,0,Recovered
+440,169,5,4,Endoscopy,2486.26,1,0,Stable
+441,409,14,4,Hip Replacement,2180.97,5,0,Improved
+442,476,8,8,MRI Scan,4173.41,11,1,Stable
+443,841,5,3,Biopsy,37813.07,10,0,Improved
+444,760,7,3,MRI Scan,30376.95,1,0,Improved
+445,222,12,1,Echocardiogram,10119.41,12,0,Recovered
+446,707,5,8,X-Ray,27120.14,1,0,Improved
+447,931,4,4,MRI Scan,1213.71,1,0,Critical
+448,686,2,4,CT Scan,35963.13,14,1,Improved
+449,525,2,6,Appendectomy,25511.41,4,1,Recovered
+450,238,4,2,Coronary Bypass,14889.87,1,0,Critical
+451,218,8,4,MRI Scan,29779.3,5,0,Discharged
+452,224,7,5,Laparoscopy,22731.13,2,1,Critical
+453,333,11,7,Ultrasound,15276.07,11,0,Stable
+454,19,10,10,Spinal Tap,17515.53,11,1,Recovered
+455,22,10,2,Dialysis,11019.64,7,1,Recovered
+456,141,6,8,Dialysis,9489.52,7,1,Discharged
+457,743,10,8,Appendectomy,6474.88,6,0,Recovered
+458,296,13,1,Physical Therapy,38188.6,6,0,Improved
+459,56,15,4,Physical Therapy,27558.81,7,0,Improved
+460,67,14,8,MRI Scan,42937.92,1,1,Improved
+461,178,10,9,EKG,11015.8,2,0,Stable
+462,203,4,7,Biopsy,27460.38,5,0,Recovered
+463,279,14,8,MRI Scan,42820.09,6,0,Stable
+464,452,7,9,Laparoscopy,33204.3,13,1,Stable
+465,391,7,2,Dialysis,26985.66,3,1,Critical
+466,465,5,7,Echocardiogram,27468.13,2,0,Improved
+467,939,4,1,Blood Panel,38843.65,12,0,Stable
+468,963,7,6,Hip Replacement,22285.02,11,0,Stable
+469,128,7,10,Biopsy,9143.15,7,0,Critical
+470,378,12,1,Hip Replacement,41730.08,12,1,Improved
+471,371,11,1,Ultrasound,12129.22,8,1,Critical
+472,593,11,3,Blood Panel,5694.51,2,0,Stable
+473,932,4,7,Biopsy,37423.86,5,0,Recovered
+474,752,7,2,CT Scan,28810.02,13,0,Improved
+475,953,12,7,Dialysis,785.7,3,0,Discharged
+476,793,12,7,Endoscopy,19049.48,5,0,Improved
+477,191,12,3,EKG,22147.97,9,0,Stable
+478,206,1,3,EKG,12041.16,14,0,Stable
+479,652,3,2,Dialysis,4313.96,2,0,Discharged
+480,241,8,8,CT Scan,923.04,5,0,Recovered
+481,217,9,1,Hip Replacement,27332.83,13,0,Stable
+482,619,7,6,Coronary Bypass,30842.77,6,0,Improved
+483,388,10,1,Coronary Bypass,39351.95,13,0,Discharged
+484,412,12,3,Blood Panel,27284.96,14,0,Improved
+485,703,11,8,Endoscopy,18884.13,4,0,Critical
+486,369,14,1,Appendectomy,30667.86,4,0,Stable
+487,439,15,8,CT Scan,33175.36,5,1,Improved
+488,510,13,2,Dialysis,37539.76,9,0,Improved
+489,679,9,4,Physical Therapy,9918.02,13,0,Discharged
+490,165,15,6,Hip Replacement,34600.74,4,0,Stable
+491,140,15,9,Colonoscopy,4524.66,12,0,Improved
+492,352,7,7,Echocardiogram,43498.04,7,1,Improved
+493,90,2,2,Appendectomy,33455.86,4,0,Recovered
+494,321,7,10,Blood Panel,14330.55,10,1,Stable
+495,374,13,3,Endoscopy,30036.55,10,1,Discharged
+496,873,8,6,Ultrasound,36818.58,5,1,Stable
+497,291,3,1,Laparoscopy,14746.2,9,0,Critical
+498,221,8,5,Hip Replacement,3117.16,13,0,Improved
+499,751,15,4,X-Ray,41580.52,13,1,Stable
+500,676,15,3,Blood Panel,24883.46,6,0,Stable
+501,401,2,9,Dialysis,13065.2,4,0,Discharged
+502,771,13,10,X-Ray,38316.53,12,0,Stable
+503,141,8,8,Dialysis,40426.2,4,1,Improved
+504,744,14,10,CT Scan,30685.14,14,1,Stable
+505,173,15,1,CT Scan,16323.48,8,1,Discharged
+506,666,6,10,Knee Replacement,43652.85,11,0,Improved
+507,247,7,8,Dialysis,31115.29,3,0,Discharged
+508,666,7,5,Spinal Tap,16845.88,2,0,Discharged
+509,657,11,9,Physical Therapy,1524.69,10,0,Critical
+510,608,3,7,Colonoscopy,44997.96,12,0,Critical
+511,334,2,9,Biopsy,18537.21,12,0,Stable
+512,858,10,9,CT Scan,34031.12,4,0,Improved
+513,569,8,6,CT Scan,2241.87,10,1,Improved
+514,263,14,1,MRI Scan,44106.82,9,0,Critical
+515,968,11,1,Physical Therapy,13876.7,9,0,Recovered
+516,503,12,6,Endoscopy,41029.85,6,1,Discharged
+517,38,4,3,Dialysis,38595.79,4,1,Recovered
+518,368,5,3,Laparoscopy,19279.67,9,0,Critical
+519,410,8,2,Chemotherapy,30605.39,12,1,Recovered
+520,645,12,5,EKG,32292.8,10,1,Stable
+521,807,7,7,Blood Panel,43398.79,4,0,Critical
+522,113,11,9,Knee Replacement,3435.19,11,0,Critical
+523,150,14,4,Chemotherapy,938.92,7,1,Stable
+524,948,2,3,Endoscopy,32910.57,5,0,Discharged
+525,887,5,9,Chemotherapy,27532.28,1,1,Critical
+526,826,12,9,Echocardiogram,26960.46,14,0,Stable
+527,10,11,9,Ultrasound,29761.55,3,0,Recovered
+528,655,6,4,Laparoscopy,19111.85,8,1,Stable
+529,515,5,5,Knee Replacement,23666.46,12,1,Critical
+530,417,13,6,MRI Scan,28743.11,2,1,Discharged
+531,59,2,5,Echocardiogram,41866.71,13,0,Stable
+532,510,9,9,CT Scan,18543.48,10,1,Discharged
+533,768,6,4,Endoscopy,30941.48,1,0,Improved
+534,77,6,3,Endoscopy,16221.47,1,0,Stable
+535,116,6,4,Echocardiogram,38359.58,14,0,Critical
+536,272,4,1,Stress Test,18016.16,5,0,Stable
+537,7,10,8,Appendectomy,13776.6,2,0,Critical
+538,364,1,2,Knee Replacement,22396.05,2,1,Stable
+539,500,1,3,Chemotherapy,10561.24,7,0,Critical
+540,550,13,5,CT Scan,44526.93,11,0,Improved
+541,766,7,1,Coronary Bypass,39819.14,12,1,Discharged
+542,42,3,7,Knee Replacement,33604.62,1,1,Improved
+543,122,7,8,Echocardiogram,22552.76,11,1,Critical
+544,946,12,7,Ultrasound,5383.11,2,0,Improved
+545,513,1,4,X-Ray,30684.81,6,0,Recovered
+546,492,5,5,Colonoscopy,4176.36,7,1,Recovered
+547,524,3,4,Chemotherapy,34619.38,14,0,Improved
+548,724,13,2,Endoscopy,27693.97,4,1,Improved
+549,411,1,5,EKG,41844.88,7,0,Recovered
+550,886,1,7,Knee Replacement,23861.22,12,1,Improved
+551,63,9,7,X-Ray,14040.9,5,0,Critical
+552,253,6,1,Biopsy,2319.57,1,0,Improved
+553,931,10,2,Knee Replacement,8725.38,8,0,Critical
+554,686,1,9,Ultrasound,15238.92,12,0,Recovered
+555,283,4,10,Hip Replacement,4381.79,2,1,Recovered
+556,601,15,4,EKG,31857.37,2,0,Recovered
+557,486,13,4,Echocardiogram,32574.24,1,1,Improved
+558,259,15,9,Coronary Bypass,40323.63,8,0,Stable
+559,430,9,9,Blood Panel,7928.61,5,1,Critical
+560,63,13,4,Hip Replacement,22528.65,9,0,Improved
+561,394,9,7,Hip Replacement,27521.22,4,1,Discharged
+562,224,10,1,Endoscopy,20767.12,12,0,Critical
+563,726,5,9,CT Scan,8114.35,1,1,Critical
+564,152,15,5,Ultrasound,12534.35,13,0,Improved
+565,119,1,6,Laparoscopy,43763.73,6,0,Recovered
+566,419,15,10,Dialysis,14946.26,1,0,Critical
+567,287,3,5,Blood Panel,24413.8,14,0,Stable
+568,650,10,9,EKG,36849.69,4,0,Critical
+569,645,13,7,Ultrasound,20349.49,12,0,Critical
+570,491,2,8,Biopsy,20942.86,14,1,Improved
+571,664,5,1,Dialysis,7749.88,3,0,Recovered
+572,147,2,7,Physical Therapy,20748.58,11,0,Discharged
+573,769,13,1,Laparoscopy,4937.98,7,0,Discharged
+574,851,11,1,Ultrasound,11551.26,2,0,Improved
+575,10,13,2,Echocardiogram,33257.85,6,0,Improved
+576,778,10,8,Biopsy,14178.63,8,1,Improved
+577,709,5,9,CT Scan,1443.75,1,0,Recovered
+578,908,14,7,Ultrasound,553.86,4,0,Improved
+579,362,11,5,Physical Therapy,41515.25,11,0,Discharged
+580,230,2,5,Coronary Bypass,3894.9,6,0,Critical
+581,45,10,3,Biopsy,19573.96,6,1,Stable
+582,684,11,5,Laparoscopy,36881.53,6,0,Critical
+583,956,5,2,Blood Panel,38846.27,3,1,Critical
+584,458,12,8,MRI Scan,5535.8,7,0,Improved
+585,131,3,7,Coronary Bypass,14709.55,7,0,Stable
+586,967,11,4,Hip Replacement,19130.35,8,0,Recovered
+587,86,10,7,Endoscopy,26215.5,12,1,Discharged
+588,3,4,1,Coronary Bypass,25347.66,3,0,Discharged
+589,870,14,3,Dialysis,20987.28,14,0,Improved
+590,230,1,3,CT Scan,43311.31,12,1,Stable
+591,435,6,1,CT Scan,29992.26,2,0,Recovered
+592,151,6,3,MRI Scan,11404.54,1,0,Improved
+593,762,3,9,Dialysis,21423.21,12,0,Stable
+594,114,3,1,X-Ray,27385.73,3,1,Discharged
+595,697,15,8,Echocardiogram,32157.6,5,0,Improved
+596,279,2,9,Hip Replacement,44017.72,3,1,Stable
+597,402,3,9,Laparoscopy,37956.23,14,0,Stable
+598,415,14,7,Biopsy,2932.89,6,0,Improved
+599,80,6,10,Appendectomy,1748.17,5,1,Recovered
+600,217,10,1,Dialysis,8854.6,4,0,Improved
+601,579,1,10,Colonoscopy,2532.79,6,0,Critical
+602,770,5,7,Endoscopy,9172.32,13,0,Critical
+603,691,2,6,Knee Replacement,40394.75,9,0,Recovered
+604,602,13,7,Colonoscopy,26592.94,14,0,Critical
+605,699,8,2,MRI Scan,42900.41,4,1,Improved
+606,529,12,10,Endoscopy,41895.11,6,0,Improved
+607,639,14,7,X-Ray,40135.26,13,0,Improved
+608,622,2,3,Stress Test,28436.64,8,0,Discharged
+609,892,5,9,MRI Scan,22701.6,8,0,Improved
+610,287,10,6,Coronary Bypass,4470.7,3,0,Critical
+611,898,8,3,CT Scan,43739.79,8,0,Critical
+612,878,10,3,Spinal Tap,16819.59,14,0,Critical
+613,424,9,8,Chemotherapy,39544.68,11,0,Recovered
+614,810,4,9,Blood Panel,7378.02,2,0,Stable
+615,409,14,2,Physical Therapy,17775.92,8,0,Critical
+616,548,15,8,CT Scan,4319.1,12,0,Stable
+617,337,2,6,Appendectomy,44841.5,8,1,Stable
+618,466,1,9,Ultrasound,42709.75,3,1,Critical
+619,793,7,1,Coronary Bypass,35635.38,8,1,Discharged
+620,24,13,7,Chemotherapy,11717.17,3,0,Improved
+621,415,2,5,Spinal Tap,39272.37,9,1,Critical
+622,56,2,7,Appendectomy,43369.78,5,1,Improved
+623,487,9,3,Knee Replacement,16283.81,12,0,Discharged
+624,741,11,10,Laparoscopy,6935.47,11,0,Discharged
+625,470,15,3,Colonoscopy,38961.41,2,0,Critical
+626,966,14,3,Spinal Tap,28931.78,10,0,Discharged
+627,193,7,9,Biopsy,27241.98,4,0,Improved
+628,591,1,6,Coronary Bypass,1220.51,5,0,Stable
+629,361,6,9,Knee Replacement,23781.06,13,0,Discharged
+630,439,6,3,Echocardiogram,26972.69,9,0,Stable
+631,706,11,7,Dialysis,31743.12,14,0,Discharged
+632,666,1,10,Knee Replacement,5113.55,12,0,Stable
+633,297,14,7,EKG,10418.13,8,0,Discharged
+634,481,2,6,Spinal Tap,18875.6,14,0,Discharged
+635,520,5,5,Chemotherapy,14179.15,13,0,Improved
+636,931,7,1,Blood Panel,1667.98,13,0,Recovered
+637,983,10,7,Physical Therapy,25230.41,7,1,Recovered
+638,821,15,10,Knee Replacement,6234.74,11,0,Improved
+639,530,3,7,Physical Therapy,4931.22,13,1,Recovered
+640,591,13,7,Chemotherapy,37761.54,3,0,Improved
+641,27,7,1,Stress Test,7310.66,10,0,Recovered
+642,752,3,8,Coronary Bypass,8801.71,11,1,Critical
+643,861,4,7,Chemotherapy,29836.97,5,0,Improved
+644,594,14,2,CT Scan,20931.18,10,0,Discharged
+645,269,15,3,MRI Scan,3943.47,14,0,Improved
+646,815,1,7,MRI Scan,22150.02,11,0,Improved
+647,649,15,8,Biopsy,8501.39,1,1,Recovered
+648,352,6,8,Laparoscopy,27199.68,1,1,Recovered
+649,198,10,1,Echocardiogram,1525.2,9,1,Improved
+650,31,6,3,Physical Therapy,4213.2,12,1,Critical
+651,977,2,6,Echocardiogram,29510.64,8,0,Stable
+652,257,3,4,Chemotherapy,43303.27,2,0,Improved
+653,500,7,8,Knee Replacement,27036.68,5,0,Recovered
+654,393,7,4,Stress Test,16204.74,11,0,Stable
+655,35,9,5,Stress Test,18736.47,10,0,Stable
+656,185,13,6,Knee Replacement,35694.89,6,1,Discharged
+657,381,6,3,Appendectomy,5942.51,6,0,Critical
+658,582,13,6,Physical Therapy,25493.01,7,0,Recovered
+659,223,2,9,Chemotherapy,32373.82,13,0,Recovered
+660,446,6,6,EKG,9271.98,13,0,Stable
+661,432,2,2,Spinal Tap,8115.72,6,0,Improved
+662,19,11,10,Blood Panel,41068.12,5,1,Stable
+663,547,15,9,X-Ray,15513.85,1,0,Stable
+664,822,7,5,Chemotherapy,14614.94,6,0,Discharged
+665,49,7,5,Spinal Tap,22453.48,11,0,Critical
+666,230,1,1,Ultrasound,5178.54,6,0,Improved
+667,196,12,6,Echocardiogram,44535.64,12,0,Critical
+668,50,5,2,Chemotherapy,15155.14,10,0,Critical
+669,142,10,8,CT Scan,6119.85,14,1,Recovered
+670,685,2,9,Endoscopy,11203.29,8,0,Critical
+671,495,4,2,Chemotherapy,34595.99,12,0,Critical
+672,663,12,4,MRI Scan,3843.93,8,0,Improved
+673,222,8,7,EKG,22200.23,6,1,Recovered
+674,726,8,3,Endoscopy,5201.89,3,1,Critical
+675,636,9,4,Hip Replacement,8863.93,5,0,Improved
+676,664,2,3,Spinal Tap,39490.73,12,0,Improved
+677,472,3,5,Blood Panel,21692.7,9,0,Critical
+678,87,6,7,EKG,7202.59,9,0,Recovered
+679,280,6,2,X-Ray,29363.67,12,0,Improved
+680,181,10,5,Endoscopy,27531.44,9,0,Discharged
+681,255,2,4,CT Scan,2864.63,1,0,Improved
+682,104,5,4,Laparoscopy,31628.3,7,0,Stable
+683,752,14,5,Colonoscopy,9653.89,13,1,Critical
+684,295,12,1,CT Scan,8736.01,12,0,Critical
+685,323,11,2,Biopsy,8836.83,8,1,Discharged
+686,22,3,5,MRI Scan,8097.27,13,0,Recovered
+687,2,8,4,Colonoscopy,5367.68,14,0,Recovered
+688,538,9,3,Ultrasound,34998.92,2,0,Critical
+689,360,9,5,Colonoscopy,11782.39,8,0,Critical
+690,913,9,10,Colonoscopy,5517.87,11,0,Improved
+691,676,3,6,Colonoscopy,1875.26,10,0,Critical
+692,92,4,7,CT Scan,43462.66,11,0,Recovered
+693,933,11,6,Appendectomy,17900.67,7,0,Critical
+694,594,9,6,Laparoscopy,5971.78,13,0,Recovered
+695,9,8,3,Spinal Tap,30801.08,9,0,Recovered
+696,499,5,2,Dialysis,1193.86,1,1,Critical
+697,501,5,1,Knee Replacement,16175.37,14,0,Discharged
+698,900,5,9,Echocardiogram,7399.15,2,0,Improved
+699,600,15,2,Dialysis,10239.17,8,0,Improved
+700,926,2,5,Dialysis,27068.23,3,0,Critical
+701,787,4,5,Ultrasound,19025.9,4,0,Critical
+702,581,15,8,Echocardiogram,8660.06,13,0,Discharged
+703,453,12,6,Endoscopy,42102.15,12,0,Stable
+704,431,7,8,Blood Panel,41108.84,1,0,Discharged
+705,929,5,4,Stress Test,23293.2,3,0,Discharged
+706,687,1,8,Endoscopy,20979.82,1,0,Discharged
+707,110,6,10,CT Scan,37076.34,10,0,Critical
+708,759,10,9,X-Ray,31719.98,9,1,Recovered
+709,917,11,3,Dialysis,28456.66,12,0,Stable
+710,69,1,3,Laparoscopy,39655.51,9,0,Improved
+711,486,1,9,Spinal Tap,17886.77,2,0,Stable
+712,241,14,9,Chemotherapy,37065.05,11,0,Recovered
+713,150,11,1,Biopsy,6805.04,12,1,Improved
+714,492,5,5,CT Scan,43179.57,8,0,Critical
+715,820,2,8,Knee Replacement,36700.47,3,0,Critical
+716,399,1,10,Dialysis,2016.72,11,0,Discharged
+717,904,12,8,Chemotherapy,905.84,3,0,Recovered
+718,925,12,9,Hip Replacement,23330.51,3,1,Critical
+719,880,13,3,Chemotherapy,35430.76,11,0,Stable
+720,860,11,8,Hip Replacement,43333.7,10,1,Recovered
+721,332,10,10,Coronary Bypass,26509.95,14,0,Discharged
+722,873,12,3,Physical Therapy,4796.05,2,0,Stable
+723,791,13,4,CT Scan,40540.85,3,0,Stable
+724,627,5,2,X-Ray,38182.68,2,0,Critical
+725,179,6,2,Spinal Tap,17304.49,11,1,Improved
+726,696,5,4,EKG,33525.85,7,1,Discharged
+727,983,11,2,EKG,1979.14,3,0,Critical
+728,886,2,6,Biopsy,30865.07,12,0,Improved
+729,848,8,9,Coronary Bypass,16363.59,9,1,Discharged
+730,386,14,2,Stress Test,3977.4,13,0,Discharged
+731,237,1,10,Echocardiogram,15225.93,4,0,Critical
+732,70,14,3,Dialysis,3827.58,10,1,Recovered
+733,59,9,2,Stress Test,21458.55,5,0,Discharged
+734,206,6,1,Ultrasound,9588.38,14,0,Discharged
+735,75,13,10,Laparoscopy,31787.54,13,0,Critical
+736,613,12,10,MRI Scan,39994.58,8,1,Critical
+737,37,8,9,Physical Therapy,29440.0,7,0,Critical
+738,954,1,1,EKG,24271.27,14,0,Discharged
+739,785,7,3,Knee Replacement,31709.53,9,1,Discharged
+740,926,6,6,EKG,15769.09,1,1,Improved
+741,11,4,7,Echocardiogram,25778.16,13,0,Improved
+742,59,3,8,Biopsy,13075.52,6,0,Recovered
+743,133,10,7,Colonoscopy,29762.44,11,0,Discharged
+744,507,12,6,Physical Therapy,20237.61,5,0,Recovered
+745,251,9,5,Appendectomy,31550.84,9,0,Discharged
+746,723,10,8,Chemotherapy,3990.85,3,1,Critical
+747,382,12,3,X-Ray,44016.98,12,0,Stable
+748,511,14,1,Chemotherapy,12869.55,7,0,Discharged
+749,876,10,7,Colonoscopy,1338.76,7,0,Stable
+750,211,7,3,Knee Replacement,24195.89,11,0,Discharged
+751,932,10,6,Chemotherapy,36555.84,10,1,Discharged
+752,637,7,7,X-Ray,36429.15,9,0,Critical
+753,737,10,9,Chemotherapy,7733.42,7,0,Improved
+754,16,5,5,MRI Scan,44946.87,13,0,Critical
+755,281,6,5,Chemotherapy,35317.97,13,0,Discharged
+756,329,14,5,Biopsy,20249.49,1,0,Discharged
+757,492,11,9,EKG,18683.18,10,0,Critical
+758,185,5,5,Chemotherapy,39172.96,3,1,Improved
+759,633,11,1,Physical Therapy,5592.87,1,1,Recovered
+760,43,9,4,X-Ray,42850.82,5,0,Discharged
+761,46,10,4,Coronary Bypass,5357.77,9,0,Discharged
+762,209,6,10,Coronary Bypass,37396.63,11,0,Discharged
+763,147,1,6,Laparoscopy,35573.32,6,0,Critical
+764,32,3,6,X-Ray,13443.83,3,0,Discharged
+765,321,9,9,Stress Test,32221.39,4,0,Recovered
+766,744,3,7,MRI Scan,43005.48,4,0,Recovered
+767,900,9,1,Laparoscopy,21518.65,9,0,Critical
+768,590,5,4,Appendectomy,11316.76,13,0,Improved
+769,119,12,4,Spinal Tap,33109.53,7,0,Discharged
+770,79,15,6,Colonoscopy,27432.23,8,0,Improved
+771,551,4,7,Stress Test,30132.67,10,0,Critical
+772,84,7,7,Endoscopy,44254.52,10,0,Improved
+773,465,1,3,CT Scan,19128.84,13,0,Discharged
+774,35,14,7,Blood Panel,31207.07,2,1,Recovered
+775,363,3,7,Echocardiogram,11243.85,5,0,Critical
+776,632,2,1,MRI Scan,33374.3,6,0,Stable
+777,447,5,8,Ultrasound,33138.22,12,0,Improved
+778,608,6,8,Hip Replacement,14759.44,3,0,Discharged
+779,506,6,1,Stress Test,23536.66,9,0,Critical
+780,776,3,3,X-Ray,36722.43,12,1,Stable
+781,322,2,6,Dialysis,7868.87,5,0,Stable
+782,296,15,5,Laparoscopy,34029.36,4,0,Improved
+783,566,14,9,Biopsy,1717.08,1,1,Discharged
+784,27,6,4,Dialysis,42410.37,10,0,Stable
+785,465,5,2,CT Scan,20276.03,7,0,Critical
+786,141,5,2,Coronary Bypass,36262.03,12,1,Discharged
+787,344,5,8,Endoscopy,30407.63,2,0,Discharged
+788,814,9,6,EKG,37943.68,11,0,Discharged
+789,601,7,4,EKG,12305.23,3,0,Improved
+790,204,11,2,Endoscopy,38643.48,12,1,Discharged
+791,572,10,4,Biopsy,2227.17,12,0,Recovered
+792,241,11,6,Colonoscopy,24105.52,3,0,Improved
+793,502,13,7,Laparoscopy,16392.19,8,0,Discharged
+794,903,15,5,Knee Replacement,43636.62,6,1,Stable
+795,476,6,2,Coronary Bypass,31515.1,12,1,Stable
+796,704,4,1,Dialysis,12422.61,4,0,Discharged
+797,326,7,7,Spinal Tap,19421.37,5,0,Critical
+798,348,11,1,Dialysis,20419.82,4,1,Recovered
+799,641,2,10,Laparoscopy,15170.95,10,0,Discharged
+800,722,6,6,Echocardiogram,3324.18,1,1,Critical
+801,859,9,7,Physical Therapy,13413.34,3,0,Critical
+802,751,4,1,X-Ray,38123.95,13,0,Recovered
+803,44,3,5,Dialysis,1578.87,11,1,Discharged
+804,833,13,7,Hip Replacement,6338.1,12,0,Discharged
+805,517,12,7,Blood Panel,1156.01,14,1,Discharged
+806,621,14,5,Appendectomy,19419.3,12,0,Critical
+807,103,5,10,Colonoscopy,17257.84,7,0,Improved
+808,495,5,9,Endoscopy,11385.32,1,0,Stable
+809,732,2,8,Physical Therapy,26215.64,1,0,Improved
+810,577,2,5,Appendectomy,6897.82,11,0,Discharged
+811,886,8,10,Physical Therapy,4233.05,7,0,Recovered
+812,786,8,5,Knee Replacement,14359.75,6,1,Discharged
+813,614,7,1,Chemotherapy,31222.68,13,0,Recovered
+814,242,6,8,Colonoscopy,23392.18,14,0,Discharged
+815,385,3,1,Biopsy,23637.29,2,1,Improved
+816,40,15,7,Colonoscopy,8097.13,13,0,Improved
+817,304,2,7,Dialysis,32537.46,11,0,Recovered
+818,578,11,3,Ultrasound,13413.76,11,1,Recovered
+819,258,8,8,EKG,42161.01,12,1,Improved
+820,427,3,3,Colonoscopy,3483.64,1,0,Improved
+821,97,9,8,Appendectomy,4714.8,10,0,Recovered
+822,359,11,9,Physical Therapy,15850.61,1,1,Critical
+823,437,10,5,Coronary Bypass,28290.29,7,0,Recovered
+824,607,3,2,EKG,12959.36,5,0,Improved
+825,791,14,10,Laparoscopy,12837.07,13,0,Improved
+826,803,4,4,MRI Scan,41864.85,10,1,Improved
+827,896,1,6,MRI Scan,40369.92,1,1,Recovered
+828,484,6,5,Endoscopy,34320.33,4,0,Stable
+829,364,5,9,Appendectomy,24115.51,10,1,Improved
+830,861,7,9,Spinal Tap,22309.16,13,0,Discharged
+831,183,1,6,Spinal Tap,34798.14,6,0,Improved
+832,384,3,1,EKG,20172.59,9,1,Discharged
+833,933,6,5,Endoscopy,41509.6,10,0,Discharged
+834,408,1,5,Chemotherapy,28324.53,10,0,Stable
+835,485,12,9,CT Scan,2199.61,1,1,Improved
+836,430,14,2,X-Ray,20230.32,12,0,Critical
+837,558,5,4,Laparoscopy,33316.69,6,0,Improved
+838,964,11,7,Knee Replacement,37778.39,11,0,Discharged
+839,780,9,3,Chemotherapy,4236.61,8,0,Critical
+840,518,7,3,Blood Panel,14346.82,9,0,Discharged
+841,857,12,2,Stress Test,41897.14,2,0,Discharged
+842,89,3,6,Stress Test,28384.81,1,1,Discharged
+843,384,8,2,Physical Therapy,14196.31,11,1,Improved
+844,723,5,3,Chemotherapy,6748.96,6,0,Improved
+845,905,4,3,Dialysis,12041.26,8,0,Discharged
+846,373,6,9,Spinal Tap,37412.75,11,1,Discharged
+847,583,4,7,Coronary Bypass,29247.36,11,0,Improved
+848,565,14,5,MRI Scan,23340.62,4,0,Improved
+849,945,2,9,Biopsy,21646.84,8,0,Critical
+850,923,1,6,CT Scan,28511.51,14,0,Improved
+851,345,11,2,Biopsy,41135.12,5,1,Stable
+852,23,8,10,Spinal Tap,26914.08,12,0,Stable
+853,259,12,6,Laparoscopy,15535.58,11,0,Critical
+854,899,4,9,CT Scan,19233.88,13,0,Recovered
+855,168,9,3,Dialysis,39953.49,12,1,Recovered
+856,680,6,1,MRI Scan,14262.67,13,1,Critical
+857,472,1,3,EKG,39791.49,5,0,Discharged
+858,879,4,7,MRI Scan,32723.98,3,0,Discharged
+859,103,8,9,Hip Replacement,31595.7,8,0,Stable
+860,939,2,7,Ultrasound,14666.87,3,0,Critical
+861,748,14,7,Laparoscopy,18026.34,2,0,Stable
+862,907,10,3,Physical Therapy,16926.4,6,0,Recovered
+863,662,4,3,Colonoscopy,8864.69,4,0,Stable
+864,394,11,3,Knee Replacement,7208.27,5,0,Stable
+865,982,7,3,Biopsy,18220.62,9,0,Stable
+866,703,12,2,Hip Replacement,36257.99,1,1,Critical
+867,520,7,8,Blood Panel,22133.2,11,0,Stable
+868,436,5,2,Laparoscopy,36417.07,8,0,Stable
+869,374,2,3,Knee Replacement,24161.17,7,0,Improved
+870,971,15,10,Chemotherapy,9293.78,14,0,Stable
+871,289,1,2,Colonoscopy,20981.16,1,0,Critical
+872,304,13,1,Echocardiogram,12391.98,5,0,Stable
+873,333,5,1,Laparoscopy,5469.91,12,0,Recovered
+874,87,9,2,Ultrasound,32842.04,11,0,Stable
+875,706,10,4,Endoscopy,25823.54,1,0,Critical
+876,624,12,2,Hip Replacement,23312.14,12,0,Critical
+877,23,3,5,MRI Scan,37739.97,7,0,Improved
+878,527,9,4,X-Ray,17153.52,8,1,Stable
+879,797,3,5,Endoscopy,30379.06,10,0,Improved
+880,417,4,1,Knee Replacement,29745.97,5,0,Stable
+881,231,1,6,Physical Therapy,3335.65,5,0,Recovered
+882,337,9,7,Colonoscopy,41879.33,1,0,Critical
+883,456,3,8,Colonoscopy,9873.36,12,1,Stable
+884,677,14,10,MRI Scan,28596.59,9,0,Discharged
+885,543,6,5,Dialysis,33913.16,8,0,Discharged
+886,599,3,10,Coronary Bypass,25637.71,7,0,Critical
+887,944,9,3,Hip Replacement,27516.92,14,0,Discharged
+888,114,10,5,Biopsy,38987.75,13,0,Recovered
+889,223,7,10,Chemotherapy,14713.46,6,0,Critical
+890,414,8,8,Dialysis,37263.16,8,1,Improved
+891,546,14,6,Spinal Tap,29700.48,11,0,Stable
+892,194,11,1,Laparoscopy,10476.57,10,0,Recovered
+893,625,4,3,Stress Test,28334.53,11,0,Critical
+894,616,15,7,Echocardiogram,23254.43,4,1,Stable
+895,246,3,8,EKG,14861.23,5,0,Discharged
+896,473,8,4,Laparoscopy,20242.57,4,1,Stable
+897,619,14,6,Biopsy,11396.42,12,0,Discharged
+898,694,7,9,Colonoscopy,38866.52,2,0,Critical
+899,796,10,9,Blood Panel,20014.19,14,0,Critical
+900,743,13,1,Coronary Bypass,18274.61,9,0,Stable
+901,150,14,5,Stress Test,34034.21,2,1,Critical
+902,146,15,4,Colonoscopy,9848.78,2,0,Discharged
+903,504,13,4,Chemotherapy,15738.71,12,0,Critical
+904,582,5,10,X-Ray,34378.86,3,0,Discharged
+905,380,10,6,Dialysis,14146.49,12,1,Recovered
+906,451,11,5,Ultrasound,33596.13,12,1,Improved
+907,264,11,4,Blood Panel,38365.9,10,0,Improved
+908,373,12,9,Endoscopy,18560.09,10,1,Critical
+909,874,9,6,Endoscopy,17159.13,14,0,Improved
+910,919,7,1,MRI Scan,15735.33,5,1,Improved
+911,624,13,2,EKG,16364.32,8,0,Recovered
+912,208,6,1,Hip Replacement,28374.89,6,0,Critical
+913,58,8,10,Endoscopy,11534.75,5,1,Improved
+914,735,8,3,X-Ray,44082.3,5,0,Discharged
+915,851,15,2,Ultrasound,23753.82,1,1,Improved
+916,780,10,8,Spinal Tap,4873.03,13,0,Critical
+917,490,2,8,MRI Scan,21683.59,2,1,Recovered
+918,10,10,7,CT Scan,32539.17,8,1,Recovered
+919,773,7,10,Chemotherapy,22420.93,3,0,Recovered
+920,975,11,5,Chemotherapy,39093.11,4,0,Critical
+921,115,13,3,Colonoscopy,790.02,9,0,Stable
+922,68,13,7,Dialysis,4708.27,14,0,Critical
+923,798,2,4,EKG,14170.42,5,0,Recovered
+924,308,15,10,EKG,25909.87,3,0,Improved
+925,406,13,3,Biopsy,27650.48,3,0,Recovered
+926,808,7,5,Physical Therapy,42011.54,8,0,Critical
+927,342,12,6,Appendectomy,20512.0,7,0,Stable
+928,963,7,1,Knee Replacement,16235.73,13,1,Stable
+929,722,4,4,Chemotherapy,13618.46,6,0,Critical
+930,334,9,9,EKG,35987.62,10,0,Critical
+931,249,3,6,Colonoscopy,42396.49,10,0,Discharged
+932,499,4,5,Laparoscopy,26582.09,1,0,Discharged
+933,379,8,5,CT Scan,21496.92,12,0,Critical
+934,895,3,10,Dialysis,26046.92,9,0,Stable
+935,587,9,5,Echocardiogram,24130.72,5,0,Improved
+936,805,12,6,Coronary Bypass,40777.11,8,1,Improved
+937,472,6,6,EKG,30656.26,12,0,Critical
+938,123,11,7,Knee Replacement,18135.71,8,0,Recovered
+939,525,6,1,Stress Test,19955.71,1,0,Recovered
+940,342,11,2,MRI Scan,25656.15,9,0,Recovered
+941,526,14,2,Stress Test,41551.11,10,1,Discharged
+942,477,8,3,Appendectomy,3749.65,11,0,Stable
+943,412,10,5,Blood Panel,28254.19,7,0,Discharged
+944,438,3,5,Physical Therapy,26504.75,13,0,Recovered
+945,206,13,10,Coronary Bypass,40249.34,12,1,Improved
+946,316,3,2,Blood Panel,24237.28,14,0,Improved
+947,892,6,4,EKG,9475.71,3,0,Critical
+948,942,4,6,Blood Panel,6610.39,8,0,Stable
+949,889,12,4,Hip Replacement,2690.04,8,0,Improved
+950,390,10,2,MRI Scan,43631.35,9,0,Improved
+951,964,8,10,Coronary Bypass,33860.88,6,0,Improved
+952,819,9,6,Colonoscopy,11860.16,2,0,Discharged
+953,823,7,7,CT Scan,16283.31,5,0,Stable
+954,87,11,7,Colonoscopy,1205.33,5,0,Discharged
+955,255,3,10,Blood Panel,6193.7,3,1,Stable
+956,611,13,4,Dialysis,17040.83,7,1,Stable
+957,959,9,3,Biopsy,16745.53,2,1,Discharged
+958,414,11,6,Chemotherapy,28175.15,1,0,Critical
+959,482,1,3,Knee Replacement,2569.23,7,1,Improved
+960,358,15,4,MRI Scan,19184.79,2,0,Stable
+961,920,9,8,Ultrasound,38632.75,13,0,Critical
+962,132,6,9,Coronary Bypass,43082.29,11,0,Stable
+963,873,10,4,Ultrasound,10259.35,3,1,Improved
+964,98,12,7,Dialysis,39967.85,2,1,Improved
+965,676,5,6,Spinal Tap,30241.86,9,0,Improved
+966,678,3,10,X-Ray,33783.15,13,0,Discharged
+967,15,3,1,Physical Therapy,7703.89,6,0,Recovered
+968,353,4,10,Hip Replacement,20618.63,4,0,Recovered
+969,121,12,5,Endoscopy,41612.91,6,1,Critical
+970,500,13,9,Spinal Tap,30014.54,11,0,Recovered
+971,375,7,1,Echocardiogram,6117.15,4,0,Discharged
+972,730,5,3,Coronary Bypass,14162.85,7,0,Recovered
+973,840,15,9,EKG,6806.02,11,1,Discharged
+974,763,6,9,Laparoscopy,35207.23,10,0,Recovered
+975,711,9,3,Coronary Bypass,7564.37,11,1,Recovered
+976,953,13,3,Echocardiogram,42427.54,10,0,Improved
+977,304,7,9,Knee Replacement,40271.63,8,0,Improved
+978,258,12,9,Dialysis,9789.59,12,0,Discharged
+979,493,14,3,Physical Therapy,17910.1,3,0,Stable
+980,855,6,2,Physical Therapy,43369.4,5,1,Stable
+981,758,10,3,EKG,20230.47,11,0,Critical
+982,121,9,5,Endoscopy,5066.24,11,0,Improved
+983,128,9,10,Spinal Tap,7338.61,13,0,Critical
+984,859,15,5,CT Scan,28396.98,7,1,Stable

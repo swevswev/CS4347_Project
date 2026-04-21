@@ -1,31 +1,55 @@
--- Sample seed data (tab/comma style loads optional; INSERTs work everywhere)
-SET NAMES utf8mb4;
-
-INSERT INTO departments (dept_name, dept_location) VALUES
-  ('Emergency', 'Building A — Level 1'),
-  ('Cardiology', 'Building B — Level 3'),
-  ('Internal Medicine', 'Building B — Level 2');
-
-INSERT INTO doctors (doctor_name, specialization, department_id) VALUES
-  ('Dr. Avery Chen', 'Emergency medicine', 1),
-  ('Dr. Jordan Mills', 'Cardiology', 2),
-  ('Dr. Sam Rivera', 'General internal medicine', 3);
-
-INSERT INTO conditions (condition_name) VALUES
-  ('Hypertension'),
-  ('Type 2 diabetes'),
-  ('Asthma'),
-  ('Fracture — lower limb');
-
-INSERT INTO patients (full_name, age, gender, ins_type, provider, deductible, primary_doctor_id) VALUES
-  ('Alex Morgan', 34, 'Non-binary', 'PPO', 'BlueCare', 500.00, 3),
-  ('Jamie Lee', 62, 'Female', 'Medicare', 'CMS', NULL, 2);
-
-INSERT INTO visits (patient_id, condition_id, procedure_text, cost, length_of_stay, satisfaction, outcome, read_admission) VALUES
-  (1, 1, 'Blood pressure check', 125.50, 0, 9, 'Stable', 0),
-  (2, 4, 'X-ray and splint', 890.00, 1, 8, 'Discharged', 0);
-
-INSERT INTO visit_doctors (visit_id, doctor_id) VALUES
-  (1, 3),
-  (2, 1),
-  (2, 2);
+-- load.sql
+-- run this after create.sql -- loads all the dat files into the db
+-- order matters here bc of fk constraints, cant just load in any order
+-- also make sure local_infile is turned on first:
+-- SET GLOBAL local_infile = 1;
+-- --------------------------------------------------------
+-- departments go first -- doctors table referances this
+-- --------------------------------------------------------
+LOAD DATA LOCAL INFILE 'project/sql/departments.dat'
+INTO TABLE DEPARTMENTS
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
+(Department_ID, Department_Name, Location);
+-- --------------------------------------------------------
+-- doctors next, depends on departements being loaded
+-- --------------------------------------------------------
+LOAD DATA LOCAL INFILE 'project/sql/doctors.dat'
+INTO TABLE DOCTORS
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
+(Doctor_ID, Doctor_Name, Specialization, Department_ID);
+-- --------------------------------------------------------
+-- conditions is standalone so order doesnt really matter
+-- --------------------------------------------------------
+LOAD DATA LOCAL INFILE 'project/sql/conditions.dat'
+INTO TABLE CONDITIONS
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
+(Condition_ID, Condition_Name);
+-- --------------------------------------------------------
+-- patients references doctors (prim_doctor fk) so load after
+-- --------------------------------------------------------
+LOAD DATA LOCAL INFILE 'project/sql/patients.dat'
+INTO TABLE PATIENTS
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
+(Patient_ID, Age, Gender, Ins_Type, Provider, Deductible, Prim_Doctor)
+SET Full_Name = CONCAT('Patient ', Patient_ID);
+-- --------------------------------------------------------
+-- visits depends on both patients and doctors being there
+-- --------------------------------------------------------
+LOAD DATA LOCAL INFILE 'project/sql/visits.dat'
+INTO TABLE VISITS
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
+(Visit_ID, Patient_ID, Doctor_ID, Satisfaction, Procedure_Name, Cost, Length_of_Stay, Re_Admission, Outcome);
+-- --------------------------------------------------------
+-- visits_conditions is the junction table, load this last
+-- both visit_id and condition_id need to exist already
+-- --------------------------------------------------------
+LOAD DATA LOCAL INFILE 'project/sql/visits_conditions.dat'
+INTO TABLE VISITS_CONDITIONS
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
+(Visit_ID, Condition_ID);

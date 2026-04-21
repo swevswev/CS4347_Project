@@ -1,7 +1,11 @@
 <?php
 declare(strict_types=1);
 require_once __DIR__ . '/includes/bootstrap.php';
-$departments = db()->query('SELECT department_id, dept_name, dept_location FROM departments ORDER BY dept_name')->fetchAll();
+$departments = db()->query(
+    'SELECT department_id, department_name AS dept_name, location AS dept_location
+     FROM departments
+     ORDER BY department_name'
+)->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -28,21 +28,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['patient_id']) && (strin
                 }
             }
             if ($searchError === null) {
-                $sql = 'SELECT v.visit_id, v.patient_id, v.condition_id, v.procedure_text, v.cost, v.length_of_stay,
-                        v.satisfaction, v.outcome, v.read_admission, v.visit_date, c.condition_name,
-                        (SELECT GROUP_CONCAT(CONCAT(d.doctor_id, \': \', d.doctor_name) ORDER BY d.doctor_id SEPARATOR \' | \')
-                         FROM visit_doctors vd2
-                         INNER JOIN doctors d ON d.doctor_id = vd2.doctor_id
-                         WHERE vd2.visit_id = v.visit_id) AS doctors
+                $sql = 'SELECT v.visit_id, v.patient_id, v.doctor_id, v.procedure_name, v.cost, v.length_of_stay,
+                        v.satisfaction, v.outcome, v.re_admission,
+                        GROUP_CONCAT(DISTINCT c.condition_name ORDER BY c.condition_name SEPARATOR \' | \') AS condition_names
                         FROM visits v
-                        LEFT JOIN conditions c ON c.condition_id = v.condition_id
+                        LEFT JOIN visits_conditions vc ON vc.visit_id = v.visit_id
+                        LEFT JOIN conditions c ON c.condition_id = vc.condition_id
                         WHERE v.patient_id = ? ';
                 $params = [$pid];
                 if ($condFilter !== null) {
-                    $sql .= ' AND v.condition_id = ? ';
+                    $sql .= ' AND vc.condition_id = ? ';
                     $params[] = $condFilter;
                 }
-                $sql .= ' ORDER BY v.visit_id DESC';
+                $sql .= ' GROUP BY v.visit_id, v.patient_id, v.doctor_id, v.procedure_name, v.cost, v.length_of_stay,
+                          v.satisfaction, v.outcome, v.re_admission
+                          ORDER BY v.visit_id DESC';
                 $sv = db()->prepare($sql);
                 $sv->execute($params);
                 $searchVisits = $sv->fetchAll();
@@ -179,11 +179,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['patient_id']) && (strin
       <h2 style="font-size:1.05rem;margin-top:1.75rem">Patient</h2>
       <dl class="patient-card">
         <dt>Patient ID</dt><dd><?= (int) $searchPatient['patient_id'] ?></dd>
-        <dt>Name</dt><dd><?= h((string) $searchPatient['full_name']) ?></dd>
+        <dt>Name</dt><dd><?= h((string) ($searchPatient['full_name'] ?? '')) ?: '—' ?></dd>
         <dt>Age / gender</dt><dd><?= (int) $searchPatient['age'] ?> / <?= h((string) $searchPatient['gender']) ?></dd>
         <dt>Insurance</dt><dd><?= h(trim((string) ($searchPatient['ins_type'] ?? '') . ' ' . (string) ($searchPatient['provider'] ?? ''))) ?: '—' ?></dd>
         <dt>Deductible</dt><dd><?= $searchPatient['deductible'] !== null ? h((string) $searchPatient['deductible']) : '—' ?></dd>
-        <dt>Primary doctor ID</dt><dd><?= $searchPatient['primary_doctor_id'] !== null ? (int) $searchPatient['primary_doctor_id'] : '—' ?></dd>
+        <dt>Primary doctor ID</dt><dd><?= $searchPatient['prim_doctor'] !== null ? (int) $searchPatient['prim_doctor'] : '—' ?></dd>
       </dl>
 
       <h2 style="font-size:1.05rem;margin-top:1.5rem">Visits<?= $searchVisits !== null && isset($_GET['condition_id']) && $_GET['condition_id'] !== '' ? ' (filtered)' : '' ?></h2>
@@ -194,10 +194,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['patient_id']) && (strin
           <thead>
             <tr>
               <th>Visit ID</th>
-              <th>Date</th>
               <th>Condition</th>
               <th>Procedure</th>
-              <th>Doctors</th>
+              <th>Doctor ID</th>
               <th>Cost</th>
               <th>LOS</th>
               <th>Sat.</th>
@@ -209,16 +208,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['patient_id']) && (strin
             <?php foreach ($searchVisits as $v): ?>
               <tr>
                 <td><?= (int) $v['visit_id'] ?></td>
-                <td><?= h((string) $v['visit_date']) ?></td>
-                <td><?= h((string) ($v['condition_name'] ?? '')) ?: '—' ?></td>
-                <td><?= h((string) ($v['procedure_text'] ?? '')) ?: '—' ?></td>
-                <td><?= h((string) ($v['doctors'] ?? '')) ?: '—' ?></td>
+                <td><?= h((string) ($v['condition_names'] ?? '')) ?: '—' ?></td>
+                <td><?= h((string) ($v['procedure_name'] ?? '')) ?: '—' ?></td>
+                <td><?= (int) $v['doctor_id'] ?></td>
                 <td><?= h((string) $v['cost']) ?></td>
                 <td><?= $v['length_of_stay'] !== null ? (int) $v['length_of_stay'] : '—' ?></td>
                 <td><?= $v['satisfaction'] !== null ? (int) $v['satisfaction'] : '—' ?></td>
                 <td><?= h((string) ($v['outcome'] ?? '')) ?: '—' ?></td>
                 <td><?php
-                  $r = $v['read_admission'];
+                  $r = $v['re_admission'];
                   if ($r === null) {
                       echo '—';
                   } elseif ((int) $r === 1) {

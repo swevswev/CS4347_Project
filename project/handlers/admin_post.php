@@ -32,9 +32,13 @@ try {
                 failAdmin('Department name is required (max 100 characters).');
             }
             $loc = trim((string) ($_POST['dept_location'] ?? ''));
-            $loc = $loc === '' ? null : (strlen($loc) > 100 ? substr($loc, 0, 100) : $loc);
-            $pdo->prepare('INSERT INTO departments (dept_name, dept_location) VALUES (?, ?)')->execute([$name, $loc]);
-            okAdmin('Department saved.');
+            if ($loc !== '' && strlen($loc) > 100) {
+                failAdmin('Department location must be at most 100 characters.');
+            }
+            $loc = $loc === '' ? null : $loc;
+            $nextId = (int) $pdo->query('SELECT COALESCE(MAX(department_id), 0) + 1 FROM departments')->fetchColumn();
+            $pdo->prepare('INSERT INTO departments (department_id, department_name, location) VALUES (?, ?, ?)')->execute([$nextId, $name, $loc]);
+            okAdmin('Department saved. New department ID: ' . $nextId . '.');
             break;
 
         case 'remove_department':
@@ -52,7 +56,10 @@ try {
                 failAdmin('Doctor name is required (max 100 characters).');
             }
             $spec = trim((string) ($_POST['specialization'] ?? ''));
-            $spec = $spec === '' ? null : (strlen($spec) > 100 ? substr($spec, 0, 100) : $spec);
+            if ($spec !== '' && strlen($spec) > 100) {
+                failAdmin('Specialization must be at most 100 characters.');
+            }
+            $spec = $spec === '' ? null : $spec;
             $deptId = filter_var($_POST['doctor_department_id'] ?? null, FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]);
             if ($deptId === false) {
                 failAdmin('Select a valid department.');
@@ -62,10 +69,11 @@ try {
             if (!$chk->fetchColumn()) {
                 failAdmin('Department does not exist.');
             }
+            $newDoctorId = (int) $pdo->query('SELECT COALESCE(MAX(doctor_id), 0) + 1 FROM doctors')->fetchColumn();
             $pdo->prepare(
-                'INSERT INTO doctors (doctor_name, specialization, department_id) VALUES (?, ?, ?)'
-            )->execute([$dname, $spec, $deptId]);
-            okAdmin('Doctor saved. New doctor ID: ' . (int) $pdo->lastInsertId() . '.');
+                'INSERT INTO doctors (doctor_id, doctor_name, specialization, department_id) VALUES (?, ?, ?, ?)'
+            )->execute([$newDoctorId, $dname, $spec, $deptId]);
+            okAdmin('Doctor saved. New doctor ID: ' . $newDoctorId . '.');
             break;
 
         case 'remove_doctor':
@@ -82,8 +90,9 @@ try {
             if ($cname === '' || strlen($cname) > 100) {
                 failAdmin('Condition name is required (max 100 characters).');
             }
-            $pdo->prepare('INSERT INTO conditions (condition_name) VALUES (?)')->execute([$cname]);
-            okAdmin('Condition saved. New condition ID: ' . (int) $pdo->lastInsertId() . '.');
+            $newConditionId = (int) $pdo->query('SELECT COALESCE(MAX(condition_id), 0) + 1 FROM conditions')->fetchColumn();
+            $pdo->prepare('INSERT INTO conditions (condition_id, condition_name) VALUES (?, ?)')->execute([$newConditionId, $cname]);
+            okAdmin('Condition saved. New condition ID: ' . $newConditionId . '.');
             break;
 
         case 'remove_condition':
