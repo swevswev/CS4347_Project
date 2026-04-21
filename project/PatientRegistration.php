@@ -9,34 +9,37 @@ require_once __DIR__ . '/includes/bootstrap.php';
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Patient Registration — Hospital Records</title>
   <style>
-    :root { --bg:#f4f6f8; --card:#fff; --border:#d0d7de; --text:#1f2328; --muted:#59636e; --accent:#0969da; }
-    * { box-sizing:border-box; }
-    body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif; background:var(--bg); color:var(--text); line-height:1.5; padding:1.5rem; }
-    main { max-width:36rem; margin:0 auto; background:var(--card); border:1px solid var(--border); border-radius:8px; padding:1.5rem 1.75rem 2rem; box-shadow:0 1px 3px rgba(31,35,40,.08); }
-    h1 { font-size:1.35rem; font-weight:600; margin:0 0 .25rem; }
-    .subtitle { color:var(--muted); font-size:.9rem; margin:0 0 1.5rem; }
-    .subtitle a { color:var(--accent); }
-    fieldset { border:1px solid var(--border); border-radius:6px; margin:0 0 1.25rem; padding:1rem 1rem .25rem; }
-    legend { font-weight:600; font-size:.85rem; padding:0 .35rem; }
-    .row { margin-bottom:1rem; }
-    label { display:block; font-size:.875rem; font-weight:500; margin-bottom:.35rem; }
-    .hint { font-weight:400; color:var(--muted); font-size:.8rem; }
-    input, select { width:100%; max-width:100%; padding:.5rem .65rem; font-size:1rem; border:1px solid var(--border); border-radius:6px; background:#fff; }
-    input:focus, select:focus { outline:2px solid rgba(9,105,218,.35); outline-offset:1px; }
-    .actions { display:flex; gap:.75rem; flex-wrap:wrap; margin-top:.5rem; }
-    button { font-size:1rem; padding:.55rem 1.1rem; border-radius:6px; border:1px solid var(--border); background:var(--accent); color:#fff; font-weight:500; cursor:pointer; }
-    button[type="reset"] { background:#fff; color:var(--text); }
-    button:hover { filter:brightness(1.05); }
-    input.no-spinner::-webkit-outer-spin-button, input.no-spinner::-webkit-inner-spin-button { -webkit-appearance:none; margin:0; }
-    input.no-spinner { -moz-appearance:textfield; appearance:textfield; }
-    .banner { padding:.75rem 1rem; border-radius:6px; margin-bottom:1rem; font-size:.9rem; }
-    .banner-error { background:#ffebe9; border:1px solid #ff8182; color:#82071e; }
-    .banner-success { background:#dafbe1; border:1px solid #4ac26b; color:#116329; }
+    :root {
+      --bg: #f4f6f8; --card: #fff; --border: #d0d7de;
+      --text: #1f2328; --muted: #59636e; --accent: #0969da;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; padding: 1.5rem; }
+    main { max-width: 36rem; margin: 0 auto; background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem 1.75rem 2rem; box-shadow: 0 1px 3px rgba(31,35,40,0.08); }
+    h1 { font-size: 1.35rem; font-weight: 600; margin: 0 0 0.25rem; }
+    .subtitle { color: var(--muted); font-size: 0.9rem; margin: 0 0 1.5rem; }
+    .subtitle a { color: var(--accent); }
+    fieldset { border: 1px solid var(--border); border-radius: 6px; margin: 0 0 1.25rem; padding: 1rem 1rem 0.25rem; }
+    legend { font-weight: 600; font-size: 0.85rem; padding: 0 0.35rem; }
+    .row { margin-bottom: 1rem; }
+    label { display: block; font-size: 0.875rem; font-weight: 500; margin-bottom: 0.35rem; }
+    .hint { font-weight: 400; color: var(--muted); font-size: 0.8rem; }
+    input, select { width: 100%; max-width: 100%; padding: 0.5rem 0.65rem; font-size: 1rem; border: 1px solid var(--border); border-radius: 6px; background: #fff; }
+    input:focus, select:focus { outline: 2px solid rgba(9,105,218,0.35); outline-offset: 1px; }
+    .actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem; }
+    button { font-size: 1rem; padding: 0.55rem 1.1rem; border-radius: 6px; border: 1px solid var(--border); background: var(--accent); color: #fff; font-weight: 500; cursor: pointer; }
+    button[type="reset"] { background: #fff; color: var(--text); }
+    button:hover { filter: brightness(1.05); }
+    input.no-spinner::-webkit-outer-spin-button, input.no-spinner::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    input.no-spinner { -moz-appearance: textfield; appearance: textfield; }
+    .banner { padding: 0.75rem 1rem; border-radius: 6px; margin-bottom: 1rem; font-size: 0.9rem; }
+    .banner-error { background: #ffebe9; border: 1px solid #ff8182; color: #82071e; }
+    .banner-success { background: #dafbe1; border: 1px solid #4ac26b; color: #116329; }
   </style>
 </head>
 <body>
   <main>
-    <p class="subtitle" style="margin-top:0"><a href="index.php">&#8592; Home</a></p>
+    <p class="subtitle" style="margin-top:0"><a href="index.php">← Home</a></p>
     <h1>Patient registration</h1>
     <?php if (!empty($_GET['error'])): ?>
       <div class="banner banner-error"><?= h((string) $_GET['error']) ?></div>
@@ -48,7 +51,10 @@ require_once __DIR__ . '/includes/bootstrap.php';
     <form method="post" action="handlers/register_patient.php">
       <fieldset>
         <legend>Patient identity</legend>
-        <!-- full_name removed -- not a column in the PATIENTS schema -->
+        <div class="row">
+          <label for="full_name">Full name</label>
+          <input type="text" id="full_name" name="full_name" required maxlength="100" autocomplete="name">
+        </div>
         <div class="row">
           <label for="age">Age</label>
           <input type="number" id="age" name="age" required min="0" max="150" step="1" inputmode="numeric">
@@ -56,7 +62,7 @@ require_once __DIR__ . '/includes/bootstrap.php';
         <div class="row">
           <label for="gender">Gender</label>
           <select id="gender" name="gender" required>
-            <option value="" disabled selected>Select...</option>
+            <option value="" disabled selected>Select…</option>
             <option value="Female">Female</option>
             <option value="Male">Male</option>
             <option value="Non-binary">Non-binary</option>
