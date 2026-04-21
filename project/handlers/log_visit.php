@@ -45,7 +45,7 @@ if (isset($_POST['condition_id']) && $_POST['condition_id'] !== '') {
     }
 }
 
-// column is Procedure in create.sql, not Procedure_Name
+// Procedure_Name is the column name in the schema (not Procedure)
 $procedure = trim((string) ($_POST['procedure'] ?? ''));
 if ($procedure !== '' && strlen($procedure) > 100) {
     failVisit('Procedure must be at most 100 characters.');
@@ -91,9 +91,8 @@ $pdo = db();
 try {
     $pdo->beginTransaction();
     $visitId = (int) $pdo->query('SELECT COALESCE(MAX(Visit_ID), 0) + 1 FROM VISITS')->fetchColumn();
-    // using Procedure (the actual column name from create.sql)
     $ins = $pdo->prepare(
-        'INSERT INTO VISITS (Visit_ID, Patient_ID, Doctor_ID, Satisfaction, `Procedure`, Cost, Length_of_Stay, Re_Admission, Outcome)
+        'INSERT INTO VISITS (Visit_ID, Patient_ID, Doctor_ID, Satisfaction, Procedure_Name, Cost, Length_of_Stay, Re_Admission, Outcome)
          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)'
     );
     $ins->execute([$visitId, $patientId, $doctorId, $sat, $procedure, $cost, $los, $read, $outcome]);
@@ -112,7 +111,7 @@ try {
         failVisit('Could not save visit: related patient, doctor, or condition record is missing.');
     }
     if ($code === 1062) {
-        failVisit('Could not save visit: duplicate visit ID detected. Please retry.');
+        failVisit('Could not save visit: duplicate visit ID. Please retry.');
     }
     failVisit('Database error while saving visit. Please try again.');
 }
