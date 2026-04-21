@@ -16,7 +16,6 @@ $patientId = filter_var($_POST['patient_id'] ?? null, FILTER_VALIDATE_INT, ['opt
 if ($patientId === false) {
     failVisit('Patient ID must be a positive integer.');
 }
-
 $st = db()->prepare('SELECT 1 FROM PATIENTS WHERE Patient_ID = ?');
 $st->execute([$patientId]);
 if (!$st->fetchColumn()) {
@@ -27,7 +26,6 @@ $doctorId = filter_var($_POST['doctor_id'] ?? null, FILTER_VALIDATE_INT, ['optio
 if ($doctorId === false) {
     failVisit('Doctor ID must be a positive integer.');
 }
-
 $stDoc = db()->prepare('SELECT 1 FROM DOCTORS WHERE Doctor_ID = ?');
 $stDoc->execute([$doctorId]);
 if (!$stDoc->fetchColumn()) {
@@ -47,6 +45,7 @@ if (isset($_POST['condition_id']) && $_POST['condition_id'] !== '') {
     }
 }
 
+// column is Procedure in create.sql, not Procedure_Name
 $procedure = trim((string) ($_POST['procedure'] ?? ''));
 if ($procedure !== '' && strlen($procedure) > 100) {
     failVisit('Procedure must be at most 100 characters.');
@@ -92,21 +91,12 @@ $pdo = db();
 try {
     $pdo->beginTransaction();
     $visitId = (int) $pdo->query('SELECT COALESCE(MAX(Visit_ID), 0) + 1 FROM VISITS')->fetchColumn();
+    // using Procedure (the actual column name from create.sql)
     $ins = $pdo->prepare(
-        'INSERT INTO VISITS (Visit_ID, Patient_ID, Doctor_ID, Satisfaction, Procedure_Name, Cost, Length_of_Stay, Re_Admission, Outcome)
+        'INSERT INTO VISITS (Visit_ID, Patient_ID, Doctor_ID, Satisfaction, `Procedure`, Cost, Length_of_Stay, Re_Admission, Outcome)
          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)'
     );
-    $ins->execute([
-        $visitId,
-        $patientId,
-        $doctorId,
-        $sat,
-        $procedure,
-        $cost,
-        $los,
-        $read,
-        $outcome,
-    ]);
+    $ins->execute([$visitId, $patientId, $doctorId, $sat, $procedure, $cost, $los, $read, $outcome]);
     if ($conditionId !== null) {
         $vc = $pdo->prepare('INSERT INTO VISITS_CONDITIONS (Visit_ID, Condition_ID) VALUES (?, ?)');
         $vc->execute([$visitId, $conditionId]);
@@ -119,10 +109,10 @@ try {
     }
     $code = (int) ($e->errorInfo[1] ?? 0);
     if ($code === 1451 || $code === 1452) {
-        failVisit('Could not save visit: related patient, doctor, or condition record is missing/invalid.');
+        failVisit('Could not save visit: related patient, doctor, or condition record is missing.');
     }
     if ($code === 1062) {
-        failVisit('Could not save visit: duplicate visit identifier detected. Please retry.');
+        failVisit('Could not save visit: duplicate visit ID detected. Please retry.');
     }
     failVisit('Database error while saving visit. Please try again.');
 }
