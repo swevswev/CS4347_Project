@@ -12,10 +12,7 @@ function fail(string $msg): never
     redirect('../PatientRegistration.php?error=' . urlencode($msg));
 }
 
-$full = trim((string) ($_POST['full_name'] ?? ''));
-if ($full === '' || strlen($full) > 100) {
-    fail('Full name is required (max 100 characters).');
-}
+// full_name removed -- not in schema
 
 $age = filter_var($_POST['age'] ?? null, FILTER_VALIDATE_INT, ['options' => ['min_range' => 0, 'max_range' => 150]]);
 if ($age === false) {
@@ -63,12 +60,12 @@ if (isset($_POST['prim_doctor']) && $_POST['prim_doctor'] !== '') {
 
 try {
     $nextId = (int) db()->query('SELECT COALESCE(MAX(Patient_ID), 0) + 1 FROM PATIENTS')->fetchColumn();
-    $sql = 'INSERT INTO PATIENTS (Patient_ID, Full_Name, Age, Gender, Ins_Type, Provider, Deductible, Prim_Doctor)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+    // insert without Full_Name -- column does not exist in schema
+    $sql = 'INSERT INTO PATIENTS (Patient_ID, Age, Gender, Ins_Type, Provider, Deductible, Prim_Doctor)
+            VALUES (?, ?, ?, ?, ?, ?, ?)';
     $st = db()->prepare($sql);
-    $st->execute([$nextId, $full, $age, $gender, $insType, $provider, $deductible, $prim]);
-    $id = $nextId;
-    redirect('../PatientRegistration.php?ok=' . urlencode("Patient registered successfully. New patient ID: {$id}."));
+    $st->execute([$nextId, $age, $gender, $insType, $provider, $deductible, $prim]);
+    redirect('../PatientRegistration.php?ok=' . urlencode("Patient registered successfully. New patient ID: {$nextId}."));
 } catch (PDOException $e) {
     $code = (int) ($e->errorInfo[1] ?? 0);
     if ($code === 1062) {
