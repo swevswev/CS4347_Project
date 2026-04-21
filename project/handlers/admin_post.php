@@ -36,8 +36,8 @@ try {
                 failAdmin('Department location must be at most 100 characters.');
             }
             $loc = $loc === '' ? null : $loc;
-            $nextId = (int) $pdo->query('SELECT COALESCE(MAX(department_id), 0) + 1 FROM departments')->fetchColumn();
-            $pdo->prepare('INSERT INTO departments (department_id, department_name, location) VALUES (?, ?, ?)')->execute([$nextId, $name, $loc]);
+            $nextId = (int) $pdo->query('SELECT COALESCE(MAX(Department_ID), 0) + 1 FROM DEPARTMENTS')->fetchColumn();
+            $pdo->prepare('INSERT INTO DEPARTMENTS (Department_ID, Department_Name, Location) VALUES (?, ?, ?)')->execute([$nextId, $name, $loc]);
             okAdmin('Department saved. New department ID: ' . $nextId . '.');
             break;
 
@@ -46,7 +46,7 @@ try {
             if ($id === false) {
                 failAdmin('Valid department ID is required.');
             }
-            $pdo->prepare('DELETE FROM departments WHERE department_id = ?')->execute([$id]);
+            $pdo->prepare('DELETE FROM DEPARTMENTS WHERE Department_ID = ?')->execute([$id]);
             okAdmin('Department removed (if it existed and no doctors referenced it).');
             break;
 
@@ -64,14 +64,14 @@ try {
             if ($deptId === false) {
                 failAdmin('Select a valid department.');
             }
-            $chk = $pdo->prepare('SELECT 1 FROM departments WHERE department_id = ?');
+            $chk = $pdo->prepare('SELECT 1 FROM DEPARTMENTS WHERE Department_ID = ?');
             $chk->execute([$deptId]);
             if (!$chk->fetchColumn()) {
                 failAdmin('Department does not exist.');
             }
-            $newDoctorId = (int) $pdo->query('SELECT COALESCE(MAX(doctor_id), 0) + 1 FROM doctors')->fetchColumn();
+            $newDoctorId = (int) $pdo->query('SELECT COALESCE(MAX(Doctor_ID), 0) + 1 FROM DOCTORS')->fetchColumn();
             $pdo->prepare(
-                'INSERT INTO doctors (doctor_id, doctor_name, specialization, department_id) VALUES (?, ?, ?, ?)'
+                'INSERT INTO DOCTORS (Doctor_ID, Doctor_Name, Specialization, Department_ID) VALUES (?, ?, ?, ?)'
             )->execute([$newDoctorId, $dname, $spec, $deptId]);
             okAdmin('Doctor saved. New doctor ID: ' . $newDoctorId . '.');
             break;
@@ -81,7 +81,7 @@ try {
             if ($id === false) {
                 failAdmin('Valid doctor ID is required.');
             }
-            $pdo->prepare('DELETE FROM doctors WHERE doctor_id = ?')->execute([$id]);
+            $pdo->prepare('DELETE FROM DOCTORS WHERE Doctor_ID = ?')->execute([$id]);
             okAdmin('Doctor removed (if not referenced by visits or primary-care assignments).');
             break;
 
@@ -90,8 +90,8 @@ try {
             if ($cname === '' || strlen($cname) > 100) {
                 failAdmin('Condition name is required (max 100 characters).');
             }
-            $newConditionId = (int) $pdo->query('SELECT COALESCE(MAX(condition_id), 0) + 1 FROM conditions')->fetchColumn();
-            $pdo->prepare('INSERT INTO conditions (condition_id, condition_name) VALUES (?, ?)')->execute([$newConditionId, $cname]);
+            $newConditionId = (int) $pdo->query('SELECT COALESCE(MAX(Condition_ID), 0) + 1 FROM CONDITIONS')->fetchColumn();
+            $pdo->prepare('INSERT INTO CONDITIONS (Condition_ID, Condition_Name) VALUES (?, ?)')->execute([$newConditionId, $cname]);
             okAdmin('Condition saved. New condition ID: ' . $newConditionId . '.');
             break;
 
@@ -100,7 +100,7 @@ try {
             if ($id === false) {
                 failAdmin('Valid condition ID is required.');
             }
-            $pdo->prepare('DELETE FROM conditions WHERE condition_id = ?')->execute([$id]);
+            $pdo->prepare('DELETE FROM CONDITIONS WHERE Condition_ID = ?')->execute([$id]);
             okAdmin('Condition removed (visits using it will have condition cleared).');
             break;
 

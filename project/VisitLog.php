@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 require_once __DIR__ . '/includes/bootstrap.php';
-$conditions = db()->query('SELECT condition_id, condition_name FROM conditions ORDER BY condition_name')->fetchAll();
+$conditions = db()->query('SELECT Condition_ID AS condition_id, Condition_Name AS condition_name FROM CONDITIONS ORDER BY Condition_Name')->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">

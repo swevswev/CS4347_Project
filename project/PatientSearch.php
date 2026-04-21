@@ -2,7 +2,7 @@
 declare(strict_types=1);
 require_once __DIR__ . '/includes/bootstrap.php';
 
-$conditions = db()->query('SELECT condition_id, condition_name FROM conditions ORDER BY condition_name')->fetchAll();
+$conditions = db()->query('SELECT Condition_ID AS condition_id, Condition_Name AS condition_name FROM CONDITIONS ORDER BY Condition_Name')->fetchAll();
 
 $searchError = null;
 $searchPatient = null;
@@ -14,7 +14,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['patient_id']) && (strin
     if ($pid === false) {
         $searchError = 'Patient ID must be a positive integer.';
     } else {
-        $p = db()->prepare('SELECT * FROM patients WHERE patient_id = ?');
+        $p = db()->prepare(
+            'SELECT
+                Patient_ID AS patient_id,
+                Full_Name AS full_name,
+                Age AS age,
+                Gender AS gender,
+                Ins_Type AS ins_type,
+                Provider AS provider,
+                Deductible AS deductible,
+                Prim_Doctor AS prim_doctor
+             FROM PATIENTS
+             WHERE Patient_ID = ?'
+        );
         $p->execute([$pid]);
         $searchPatient = $p->fetch();
         if (!$searchPatient) {
@@ -28,21 +40,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['patient_id']) && (strin
                 }
             }
             if ($searchError === null) {
-                $sql = 'SELECT v.visit_id, v.patient_id, v.doctor_id, v.procedure_name, v.cost, v.length_of_stay,
-                        v.satisfaction, v.outcome, v.re_admission,
-                        GROUP_CONCAT(DISTINCT c.condition_name ORDER BY c.condition_name SEPARATOR \' | \') AS condition_names
-                        FROM visits v
-                        LEFT JOIN visits_conditions vc ON vc.visit_id = v.visit_id
-                        LEFT JOIN conditions c ON c.condition_id = vc.condition_id
-                        WHERE v.patient_id = ? ';
+                $sql = 'SELECT v.Visit_ID AS visit_id, v.Patient_ID AS patient_id, v.Doctor_ID AS doctor_id,
+                        v.Procedure_Name AS procedure_name, v.Cost AS cost, v.Length_of_Stay AS length_of_stay,
+                        v.Satisfaction AS satisfaction, v.Outcome AS outcome, v.Re_Admission AS re_admission,
+                        GROUP_CONCAT(DISTINCT c.Condition_Name ORDER BY c.Condition_Name SEPARATOR \' | \') AS condition_names
+                        FROM VISITS v
+                        LEFT JOIN VISITS_CONDITIONS vc ON vc.Visit_ID = v.Visit_ID
+                        LEFT JOIN CONDITIONS c ON c.Condition_ID = vc.Condition_ID
+                        WHERE v.Patient_ID = ? ';
                 $params = [$pid];
                 if ($condFilter !== null) {
-                    $sql .= ' AND vc.condition_id = ? ';
+                    $sql .= ' AND vc.Condition_ID = ? ';
                     $params[] = $condFilter;
                 }
-                $sql .= ' GROUP BY v.visit_id, v.patient_id, v.doctor_id, v.procedure_name, v.cost, v.length_of_stay,
-                          v.satisfaction, v.outcome, v.re_admission
-                          ORDER BY v.visit_id DESC';
+                $sql .= ' GROUP BY v.Visit_ID, v.Patient_ID, v.Doctor_ID, v.Procedure_Name, v.Cost, v.Length_of_Stay,
+                          v.Satisfaction, v.Outcome, v.Re_Admission
+                          ORDER BY v.Visit_ID DESC';
                 $sv = db()->prepare($sql);
                 $sv->execute($params);
                 $searchVisits = $sv->fetchAll();

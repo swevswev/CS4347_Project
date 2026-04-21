@@ -17,7 +17,7 @@ if ($patientId === false) {
     failVisit('Patient ID must be a positive integer.');
 }
 
-$st = db()->prepare('SELECT 1 FROM patients WHERE patient_id = ?');
+$st = db()->prepare('SELECT 1 FROM PATIENTS WHERE Patient_ID = ?');
 $st->execute([$patientId]);
 if (!$st->fetchColumn()) {
     failVisit('Patient ID does not exist.');
@@ -28,7 +28,7 @@ if ($doctorId === false) {
     failVisit('Doctor ID must be a positive integer.');
 }
 
-$stDoc = db()->prepare('SELECT 1 FROM doctors WHERE doctor_id = ?');
+$stDoc = db()->prepare('SELECT 1 FROM DOCTORS WHERE Doctor_ID = ?');
 $stDoc->execute([$doctorId]);
 if (!$stDoc->fetchColumn()) {
     failVisit("Doctor ID {$doctorId} does not exist. Add the doctor in Admin first.");
@@ -40,7 +40,7 @@ if (isset($_POST['condition_id']) && $_POST['condition_id'] !== '') {
     if ($conditionId === false) {
         failVisit('Invalid condition selection.');
     }
-    $stc = db()->prepare('SELECT 1 FROM conditions WHERE condition_id = ?');
+    $stc = db()->prepare('SELECT 1 FROM CONDITIONS WHERE Condition_ID = ?');
     $stc->execute([$conditionId]);
     if (!$stc->fetchColumn()) {
         failVisit('Selected condition does not exist.');
@@ -91,9 +91,9 @@ if ($ra === '1' || $ra === '0') {
 $pdo = db();
 try {
     $pdo->beginTransaction();
-    $visitId = (int) $pdo->query('SELECT COALESCE(MAX(visit_id), 0) + 1 FROM visits')->fetchColumn();
+    $visitId = (int) $pdo->query('SELECT COALESCE(MAX(Visit_ID), 0) + 1 FROM VISITS')->fetchColumn();
     $ins = $pdo->prepare(
-        'INSERT INTO visits (visit_id, patient_id, doctor_id, satisfaction, procedure_name, cost, length_of_stay, re_admission, outcome)
+        'INSERT INTO VISITS (Visit_ID, Patient_ID, Doctor_ID, Satisfaction, Procedure_Name, Cost, Length_of_Stay, Re_Admission, Outcome)
          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)'
     );
     $ins->execute([
@@ -108,7 +108,7 @@ try {
         $outcome,
     ]);
     if ($conditionId !== null) {
-        $vc = $pdo->prepare('INSERT INTO visits_conditions (visit_id, condition_id) VALUES (?, ?)');
+        $vc = $pdo->prepare('INSERT INTO VISITS_CONDITIONS (Visit_ID, Condition_ID) VALUES (?, ?)');
         $vc->execute([$visitId, $conditionId]);
     }
     $pdo->commit();

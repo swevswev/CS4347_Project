@@ -54,7 +54,7 @@ if (isset($_POST['prim_doctor']) && $_POST['prim_doctor'] !== '') {
     if ($prim === false) {
         fail('Primary doctor ID must be a positive integer.');
     }
-    $st = db()->prepare('SELECT 1 FROM doctors WHERE doctor_id = ?');
+    $st = db()->prepare('SELECT 1 FROM DOCTORS WHERE Doctor_ID = ?');
     $st->execute([$prim]);
     if (!$st->fetchColumn()) {
         fail('Primary doctor ID does not exist. Add the doctor in Admin first.');
@@ -62,8 +62,8 @@ if (isset($_POST['prim_doctor']) && $_POST['prim_doctor'] !== '') {
 }
 
 try {
-    $nextId = (int) db()->query('SELECT COALESCE(MAX(patient_id), 0) + 1 FROM patients')->fetchColumn();
-    $sql = 'INSERT INTO patients (patient_id, full_name, age, gender, ins_type, provider, deductible, prim_doctor)
+    $nextId = (int) db()->query('SELECT COALESCE(MAX(Patient_ID), 0) + 1 FROM PATIENTS')->fetchColumn();
+    $sql = 'INSERT INTO PATIENTS (Patient_ID, Full_Name, Age, Gender, Ins_Type, Provider, Deductible, Prim_Doctor)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
     $st = db()->prepare($sql);
     $st->execute([$nextId, $full, $age, $gender, $insType, $provider, $deductible, $prim]);

@@ -2,9 +2,9 @@
 declare(strict_types=1);
 require_once __DIR__ . '/includes/bootstrap.php';
 $departments = db()->query(
-    'SELECT department_id, department_name AS dept_name, location AS dept_location
-     FROM departments
-     ORDER BY department_name'
+    'SELECT Department_ID AS department_id, Department_Name AS dept_name, Location AS dept_location
+     FROM DEPARTMENTS
+     ORDER BY Department_Name'
 )->fetchAll();
 ?>
 <!DOCTYPE html>
